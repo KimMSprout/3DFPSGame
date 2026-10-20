@@ -26,7 +26,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         _stemina = Mathf.Min(_stemina + 0.1f, 100f);
+=======
+        _stemina = Mathf.Min(_stemina + _steminaRecovery, MaxStemina);
+>>>>>>> Stashed changes
         _slider.value = _stemina;
 
         if (_characterController.isGrounded)
