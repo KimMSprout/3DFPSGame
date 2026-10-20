@@ -6,37 +6,38 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     private const float Gravity = -20f;
+    private const int MaxJump = 2;
+    private const float MaxStemina = 100f;
+
     private float _yVelocity = 0f; // 위 아래 속도, 매 프레임마다 중력 가속도가 붙는다.
     private float _xVelocity = 0f;
 
     private int jumpCount = 2;
 
+    [Header("스탯")]
     [SerializeField] private float _moveSpeed = 10f;
-    [SerializeField] private float _jumpPower = 10f;
+    [SerializeField] private float _jumpPower = 20f;
     [SerializeField] private float _dashSpeedMultiplier = 3f;
     [SerializeField] private float _stemina = 100;
+    [SerializeField] private float _steminaRecovery = 0.1f;
+    [SerializeField] private float _jumpCost = 40f;
+    [SerializeField] private float _sprintCost = 0.3f;
+
+    [Header("컴포넌트")]
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private Slider _slider;
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-        _slider.value = 100f;
+        _stemina = MaxStemina;
+        _slider.value = MaxStemina;
     }
 
     private void Update()
     {
-<<<<<<< Updated upstream
-        _stemina = Mathf.Min(_stemina + 0.1f, 100f);
-=======
-        _stemina = Mathf.Min(_stemina + _steminaRecovery, MaxStemina);
->>>>>>> Stashed changes
+        _stemina = Mathf.Min(_stemina + _steminaRecovery * Time.deltaTime, MaxStemina);
         _slider.value = _stemina;
-
-        if (_characterController.isGrounded)
-        {
-            jumpCount = 2;
-        }
 
         // 1. 키보드 입력을 받는다.
         float h = Input.GetAxisRaw("Horizontal");
@@ -58,25 +59,26 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            _yVelocity = 0f;
+            // 땅에 서있으면 중력/점프 초기화
+            _yVelocity = -1f;
+            jumpCount = MaxJump;
         }
 
         // 4. 만약에 점프 키를 누르면... 점프를 한다.
         if (Input.GetButtonDown("Jump")
-            && _characterController.isGrounded == false
-            && jumpCount > 0 && (_stemina - 40f) > 0) // 중재자 패턴
+            && jumpCount > 0 && (_stemina - _jumpCost) > 0) // 중재자 패턴
         {
-            _stemina -= 40f;
+            _stemina -= _jumpCost;
             jumpCount--;
             _yVelocity = _jumpPower;
         }
 
-        if (Input.GetButton("Fire3")
+        if (Input.GetButton("Sprint")
             && _characterController.isGrounded
-            && (_stemina - 5) > 0)
+            && (_stemina - _sprintCost) > 0)
         {
             _dashSpeedMultiplier = 1.2f;
-            _stemina -= 1f;
+            _stemina -= _sprintCost;
         }
 
         // 5. 속도를 구한다.
@@ -87,7 +89,5 @@ public class PlayerMove : MonoBehaviour
         // 6. 방향과 속력에 따라 이동한다.
         // transform.position += direction * Time.deltaTime * _moveSpeed;
         _characterController.Move(velocity * Time.deltaTime);
-
-        Debug.Log($"현재 스테미나 100 / {_stemina}");
     }
 }

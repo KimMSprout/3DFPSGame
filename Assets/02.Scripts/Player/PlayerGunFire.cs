@@ -8,8 +8,6 @@ public enum MyKey
 // 마우스 좌클릭을 하면 바라보는 방향으로 총알을 발사
 public class PlayerGunFire : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _hitEffectPrefab;
-
     private float _range = 100f;
     private float _damage = 10f;
 
@@ -41,11 +39,8 @@ public class PlayerGunFire : MonoBehaviour
 
         if (isHit)
         {
-            ParticleSystem hitEffect =
-                Instantiate(_hitEffectPrefab);
-            hitEffect.transform.position = hitInfo.point;
-            hitEffect.transform.forward = hitInfo.normal; // 수직 위치로 회전
-            hitEffect.Play(true);
+            Debug.Log($"{hitInfo.collider.name}이 총알을 맞았다. 데미지 : {_damage}");
+            // TODO : 이펙트 생성
         }
     }
 }
