@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerRotate : MonoBehaviour
 {
-    [SerializeField] private float _rotationSpeed = 200f;
+    [SerializeField] private float _rotationSpeed = 500f;
 
     private float _accumulationX = 0f;
 

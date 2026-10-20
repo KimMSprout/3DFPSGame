@@ -4,7 +4,7 @@ using UnityEngine;
 // 역할 : 마우스를 움직이면 카메르를 그 방향으로 회전하고 싶다.
 public class CameraRotate : MonoBehaviour
 {
-    [SerializeField] private float _rotationSpeed = 200f;
+    [SerializeField] private float _rotationSpeed = 500f;
 
     private float _accumulationX = 0f; // 좌우 회전 각도
     private float _accumulationY = 0f; // 위 아래 회전 각도
