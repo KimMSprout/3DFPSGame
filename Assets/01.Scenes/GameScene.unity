@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
+  - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -440,6 +441,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   _target: {fileID: 1616074487}
+--- !u!114 &330585550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed0b4e372344d048be74098f230cced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraViewSwitcher
+  _player: {fileID: 1616074487}
+  _cameraPosition: {fileID: 330585546}
+  _cameraRotate: {fileID: 330585547}
+  _cameraFollow: {fileID: 330585547}
+  _switchKey: 118
+  _mouseSensitivity: 2
+  _invertMouseY: 0
+  _lockCursor: 1
+  _currentView: 0
+  _firstPerson:
+    _positionOffset: {x: 0, y: 0, z: 0}
+    _rotationOffset: {x: 0, y: 0, z: 0}
+    _followPlayerYaw: 1
+    _useMousePitch: 1
+  _thirdPerson:
+    _positionOffset: {x: 0, y: 0.7, z: -4}
+    _rotationOffset: {x: 10, y: 0, z: 0}
+    _followPlayerYaw: 1
+    _useMousePitch: 1
+  _shoulder:
+    _positionOffset: {x: 0.65, y: 0.25, z: -2.5}
+    _rotationOffset: {x: 5, y: 0, z: 0}
+    _followPlayerYaw: 1
+    _useMousePitch: 1
+  _quarter:
+    _positionOffset: {x: -5, y: 7.071068, z: -5}
+    _rotationOffset: {x: 45, y: 45, z: 0}
+    _followPlayerYaw: 0
+    _useMousePitch: 0
+  _topDown:
+    _positionOffset: {x: 0, y: 8, z: 0}
+    _rotationOffset: {x: 90, y: 0, z: 0}
+    _followPlayerYaw: 0
+    _useMousePitch: 0
+  _side:
+    _positionOffset: {x: 8, y: 0, z: 0}
+    _rotationOffset: {x: 0, y: -90, z: 0}
+    _followPlayerYaw: 0
+    _useMousePitch: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   _moveSpeed: 10
+  _characterController: {fileID: 0}
 --- !u!143 &1616074490
 CharacterController:
   m_ObjectHideFlags: 0
