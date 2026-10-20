@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        _stemina = Mathf.Min(_stemina + _steminaRecovery * Time.deltaTime, MaxStemina);
+        _stemina = Mathf.Min(_stemina + _steminaRecovery, MaxStemina);
         _slider.value = _stemina;
 
         // 1. 키보드 입력을 받는다.
