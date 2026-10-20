@@ -15,7 +15,7 @@ public class CameraRotate : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        GameLogger.Log($"mouseX: {mouseX}, mouseY: {mouseY}");
+        // GameLogger.Log($"mouseX: {mouseX}, mouseY: {mouseY}");
 
         // 2. 마우스 입력에 따라 회전할 방향을 구한다.
         // Vector3 direction = new Vector3(-mouseY, mouseX, 0);

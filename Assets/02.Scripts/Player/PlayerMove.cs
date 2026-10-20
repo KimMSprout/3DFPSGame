@@ -8,6 +8,8 @@ public class PlayerMove : MonoBehaviour
     private float _yVelocity = 0f; // 위 아래 속도, 매 프레임마다 중력 가속도가 붙는다.
     private float _xVelocity = 0f;
 
+    private int jumpCount = 2;
+
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private float _jumpPower = 10f;
     [SerializeField] private float _dashSpeedMultiplier = 3f;
@@ -20,6 +22,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        if (_characterController.isGrounded)
+        {
+            jumpCount = 2;
+        }
+
         // 1. 키보드 입력을 받는다.
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
@@ -44,8 +51,9 @@ public class PlayerMove : MonoBehaviour
         }
 
         // 4. 만약에 점프 키를 누르면... 점프를 한다.
-        if (Input.GetButtonDown("Jump") && _characterController.isGrounded) // 중재자 패턴
+        if (Input.GetButtonDown("Jump") && _characterController.isGrounded == false && jumpCount > 0) // 중재자 패턴
         {
+            jumpCount--;
             _yVelocity = _jumpPower;
         }
 
