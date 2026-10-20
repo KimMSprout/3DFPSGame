@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 // 키보드 방향키에 따라 그 방향으로 이동하고 싶다.
 public class PlayerMove : MonoBehaviour
@@ -15,15 +16,18 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _dashSpeedMultiplier = 3f;
     [SerializeField] private float _stemina = 100;
     [SerializeField] private CharacterController _characterController;
+    [SerializeField] private Slider _slider;
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _slider.value = 100f;
     }
 
     private void Update()
     {
         _stemina = Mathf.Min(_stemina + 0.1f, 100f);
+        _slider.value = _stemina;
 
         if (_characterController.isGrounded)
         {
