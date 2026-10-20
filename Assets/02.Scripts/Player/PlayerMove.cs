@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private float _jumpPower = 10f;
     [SerializeField] private float _dashSpeedMultiplier = 3f;
+    [SerializeField] private float _stemina = 100;
     [SerializeField] private CharacterController _characterController;
 
     private void Awake()
@@ -22,6 +23,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        _stemina = Mathf.Min(_stemina + 0.1f, 100f);
+
         if (_characterController.isGrounded)
         {
             jumpCount = 2;
@@ -51,15 +54,21 @@ public class PlayerMove : MonoBehaviour
         }
 
         // 4. 만약에 점프 키를 누르면... 점프를 한다.
-        if (Input.GetButtonDown("Jump") && _characterController.isGrounded == false && jumpCount > 0) // 중재자 패턴
+        if (Input.GetButtonDown("Jump")
+            && _characterController.isGrounded == false
+            && jumpCount > 0 && (_stemina - 40f) > 0) // 중재자 패턴
         {
+            _stemina -= 40f;
             jumpCount--;
             _yVelocity = _jumpPower;
         }
 
-        if (Input.GetButton("Fire3") && _characterController.isGrounded)
+        if (Input.GetButton("Fire3")
+            && _characterController.isGrounded
+            && (_stemina - 5) > 0)
         {
             _dashSpeedMultiplier = 1.2f;
+            _stemina -= 1f;
         }
 
         // 5. 속도를 구한다.
@@ -70,5 +79,7 @@ public class PlayerMove : MonoBehaviour
         // 6. 방향과 속력에 따라 이동한다.
         // transform.position += direction * Time.deltaTime * _moveSpeed;
         _characterController.Move(velocity * Time.deltaTime);
+
+        Debug.Log($"현재 스테미나 100 / {_stemina}");
     }
 }
