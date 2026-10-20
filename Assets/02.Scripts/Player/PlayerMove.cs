@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 // 키보드 방향키에 따라 그 방향으로 이동하고 싶다.
 public class PlayerMove : MonoBehaviour
@@ -13,15 +14,21 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private float _jumpPower = 10f;
     [SerializeField] private float _dashSpeedMultiplier = 3f;
+    [SerializeField] private float _stemina = 100;
     [SerializeField] private CharacterController _characterController;
+    [SerializeField] private Slider _slider;
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _slider.value = 100f;
     }
 
     private void Update()
     {
+        _stemina = Mathf.Min(_stemina + 0.1f, 100f);
+        _slider.value = _stemina;
+
         if (_characterController.isGrounded)
         {
             jumpCount = 2;
@@ -51,15 +58,21 @@ public class PlayerMove : MonoBehaviour
         }
 
         // 4. 만약에 점프 키를 누르면... 점프를 한다.
-        if (Input.GetButtonDown("Jump") && _characterController.isGrounded == false && jumpCount > 0) // 중재자 패턴
+        if (Input.GetButtonDown("Jump")
+            && _characterController.isGrounded == false
+            && jumpCount > 0 && (_stemina - 40f) > 0) // 중재자 패턴
         {
+            _stemina -= 40f;
             jumpCount--;
             _yVelocity = _jumpPower;
         }
 
-        if (Input.GetButton("Fire3") && _characterController.isGrounded)
+        if (Input.GetButton("Fire3")
+            && _characterController.isGrounded
+            && (_stemina - 5) > 0)
         {
             _dashSpeedMultiplier = 1.2f;
+            _stemina -= 1f;
         }
 
         // 5. 속도를 구한다.
@@ -70,5 +83,7 @@ public class PlayerMove : MonoBehaviour
         // 6. 방향과 속력에 따라 이동한다.
         // transform.position += direction * Time.deltaTime * _moveSpeed;
         _characterController.Move(velocity * Time.deltaTime);
+
+        Debug.Log($"현재 스테미나 100 / {_stemina}");
     }
 }
