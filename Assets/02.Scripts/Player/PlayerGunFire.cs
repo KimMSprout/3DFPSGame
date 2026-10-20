@@ -10,15 +10,21 @@ public class PlayerGunFire : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _hitEffectPrefab;
 
-    private float _range = 100f;
-    private float _damage = 10f;
+    [Header("스탯")]
+    [SerializeField] private float _range = 100f;
+    [SerializeField] private float _damage = 10f;
+    [SerializeField] private float _fireInterval = 0.1f;
+    private float _fireTimer = 0f;
 
     private void Update()
     {
+        _fireTimer -= Time.deltaTime;
+
         // 1. 마우스 왼쪽 버튼 입력 받기
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && _fireTimer <= 0f)
         {
             Fire();
+            _fireTimer = _fireInterval;
         }
     }
 
@@ -33,7 +39,7 @@ public class PlayerGunFire : MonoBehaviour
 
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
 
-        // 3. 레이가 부딪힌 대상의 정보를 저장할 변수 생성하기
+        // 3. 레이가 부딪힌 대상의 정보를 저장할 변수 생성하기www
         RaycastHit hitInfo = new RaycastHit();
 
         // 4. 레이를 발사하고, 만일 부딪힌 물체가 있다면 이펙트 표시하기

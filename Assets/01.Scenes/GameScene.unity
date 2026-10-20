@@ -479,7 +479,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -0.062, y: 1.41, z: 0.481}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ed0b4e372344d048be74098f230cced, type: 3}
   m_Name: 
@@ -2024,6 +2024,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGunFire
   _hitEffectPrefab: {fileID: 19800002, guid: 54dd9cb5740188a488b8baebbf19207c, type: 3}
+  _range: 200
+  _damage: 10
+  _fireInterval: 0.1
 --- !u!1 &1903861896
 GameObject:
   m_ObjectHideFlags: 0
