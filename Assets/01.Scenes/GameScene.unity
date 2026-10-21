@@ -685,6 +685,37 @@ MonoBehaviour:
     _rotationOffset: {x: 0, y: -90, z: 0}
     _followPlayerYaw: 0
     _useMousePitch: 0
+--- !u!1 &353108900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353108901}
+  m_Layer: 7
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353108901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353108900}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.36, z: 0.884}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1616074487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,8 +2078,9 @@ GameObject:
   - component: {fileID: 1616074488}
   - component: {fileID: 1616074489}
   - component: {fileID: 1616074491}
+  - component: {fileID: 1616074492}
   - component: {fileID: 1616074490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2149,6 +2181,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1952538454}
+  - {fileID: 353108901}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1616074488
@@ -2226,12 +2259,29 @@ MonoBehaviour:
   _range: 200
   _damage: 10
   _fireInterval: 0.1
-  _reloadTime: 2
+  _reloadTime: 3
   _maxMagazine: 250
   _reloadMagazine: 50
   _currentMagazine: 0
   _maxMagazineText: {fileID: 1445656150}
   _currentMagazineText: {fileID: 299607856}
+--- !u!114 &1616074492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616074483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3fc7b59aa0a0642bc400c6256bbb08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBombFire
+  _firePoint: {fileID: 353108901}
+  _bombPrefab: {fileID: 5359714476791167062, guid: b1492716dbf2039489a7439d973df8b1, type: 3}
+  _throwPower: 0
+  _maxBombCount: 10
+  _chargeSpeed: 5
 --- !u!1 &1625079029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2488,7 @@ GameObject:
   - component: {fileID: 1952538457}
   - component: {fileID: 1952538456}
   - component: {fileID: 1952538455}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}

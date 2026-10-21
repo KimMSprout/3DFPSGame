@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Lean.Pool;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class PlayerGunFire : MonoBehaviour
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _damage = 10f;
     [SerializeField] private float _fireInterval = 0.1f;
-    [SerializeField] private float _reloadTime = 2f;
+    [SerializeField] private float _reloadTime = 3f;
     [SerializeField] private int _maxMagazine = 250;
     [SerializeField] private int _reloadMagazine = 50;
     [SerializeField] private int _currentMagazine;
@@ -31,6 +32,7 @@ public class PlayerGunFire : MonoBehaviour
     private void Awake()
     {
         _currentMagazine = _reloadMagazine;
+        PlayerFirePool.RegisterHitEffect(_hitEffectPrefab);
     }
 
     private void Update()
@@ -81,9 +83,21 @@ public class PlayerGunFire : MonoBehaviour
 
         if (isHit)
         {
+            // Lean Pool 에셋
             ParticleSystem hitEffect =
-                Instantiate(_hitEffectPrefab);
-            hitEffect.transform.position = hitInfo.point;
+                LeanPool.Spawn(_hitEffectPrefab, hitInfo.point, Quaternion.identity);
+
+            // AI 코드
+            // ParticleSystem hitEffect = PlayerFirePool.GetHitEffect(
+            //     _hitEffectPrefab,
+            //     hitInfo.point,
+            //     Quaternion.LookRotation(hitInfo.normal));
+
+            if (hitEffect == null)
+            {
+                return;
+            }
+
             hitEffect.transform.forward = hitInfo.normal; // 수직 위치로 회전
             hitEffect.Play(true);
         }
