@@ -13,6 +13,7 @@ using UnityEngine;
 public enum ZombieState
 {
     Idle, // 대기 : 제자리에서 플레이어를 기다린다.
+    Roaming, // 로밍 : 무작위 이동
     Trace, // 추격 : 플레이어를 쫓아간다.
     Comback, // 복귀 : 처음 자리로 돌아간다.
     Attack, // 공격 : 일정 시간마다 플레이러를 때린다.
@@ -23,17 +24,23 @@ public enum ZombieState
 public class Zombie : MonoBehaviour
 {
     [Header("스탯")]
+    [SerializeField] private float _idleInterval = 3f;
     [SerializeField] private float _detectDistance = 8f;
     [SerializeField] private float _attackRange = 2f;
     [SerializeField] private float _attackInterval = 1.2f;
     [SerializeField] private float _comabackDistance = 15f;
+    [SerializeField] private float _randomRoamingDistance = 10f;
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _health = 30f;
 
+    private float _idleTimer = 0f;
     private float _attackTimer = 0f;
     private CharacterController _controller;
     private GameObject _player;
     private Vector3 _startPosition;
+
+    private Vector3 _endPosition;
+
     private ZombieState _state = ZombieState.Idle;
 
     private void Start()
@@ -51,6 +58,9 @@ public class Zombie : MonoBehaviour
             case ZombieState.Idle:
                 Idle();
                 break;
+            case ZombieState.Roaming:
+                Roaming();
+                break;
             case ZombieState.Trace:
                 Trace();
                 break;
@@ -65,12 +75,55 @@ public class Zombie : MonoBehaviour
 
     private void Idle()
     {
+        _idleTimer += Time.deltaTime;
+
         float distance = Vector3.Distance(transform.position, _player.transform.position);
 
         if (distance < _detectDistance)
         {
+            Debug.Log($"{_state} => Trace");
             _state = ZombieState.Trace;
+            return;
         }
+
+        if (_idleTimer >= _idleInterval)
+        {
+            Debug.Log($"{_state} => Roaming");
+            _state = ZombieState.Roaming;
+            _endPosition = transform.position +
+                           new Vector3(UnityEngine.Random.Range(_randomRoamingDistance * -1f, _randomRoamingDistance),
+                               0f, UnityEngine.Random.Range(_randomRoamingDistance * -1f, _randomRoamingDistance));
+            _idleInterval = UnityEngine.Random.Range(1f, 3f);
+        }
+    }
+
+    private void Roaming()
+    {
+        _idleTimer = 0f;
+
+        float distance = Vector3.Distance(transform.position, _player.transform.position);
+
+        if (distance < _detectDistance)
+        {
+            Debug.Log($"{_state} => Trace");
+            _state = ZombieState.Trace;
+            return;
+        }
+
+        if (Vector3.Distance(transform.position, _endPosition) < 1f)
+        {
+            Debug.Log($"{_state} => Idle");
+            _state = ZombieState.Idle;
+            _startPosition = _endPosition;
+            return;
+        }
+
+        Vector3 direction = _endPosition - transform.position;
+        direction.Normalize();
+        direction.y = 0f;
+
+        transform.forward = direction;
+        _controller.Move(direction * _moveSpeed * Time.deltaTime);
     }
 
     private void Trace()
