@@ -1678,7 +1678,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zombie
   _detectDistance: 8
+  _attackRange: 2
+  _attackInterval: 1.2
+  _comabackDistance: 15
   _moveSpeed: 5
+  _health: 30
 --- !u!143 &1195779580
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1770,7 +1774,7 @@ Transform:
   m_GameObject: {fileID: 1195779578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35356, y: 0.88, z: 2.26}
+  m_LocalPosition: {x: 0.35356, y: 0.88, z: 13.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

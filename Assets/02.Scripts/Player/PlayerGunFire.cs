@@ -100,6 +100,8 @@ public class PlayerGunFire : MonoBehaviour
 
             hitEffect.transform.forward = hitInfo.normal; // 수직 위치로 회전
             hitEffect.Play(true);
+
+            hitInfo.transform.GetComponent<Zombie>().TakeDamage(_damage);
         }
     }
 
