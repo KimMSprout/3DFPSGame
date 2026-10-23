@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class UI_HitEffect : MonoBehaviour
 {
     [SerializeField] private float _flashTime = 0.2f;
+    [SerializeField] private float _fadeTime = 0.3f;
 
     private Image _image;
 
@@ -21,10 +22,47 @@ public class UI_HitEffect : MonoBehaviour
 
     private IEnumerator Flash_Coroutine()
     {
+        SetAlpha(1f);
+
         _image.enabled = true;
 
         yield return new WaitForSeconds(_flashTime);
 
         _image.enabled = false;
+    }
+
+    public void Fade(float alpha)
+    {
+        SetAlpha(alpha);
+
+        StartCoroutine(Fade_Coroutine());
+    }
+
+    private IEnumerator Fade_Coroutine()
+    {
+        float elapsed = 0f;
+
+        float startAlpha = _image.color.a;
+
+        while (elapsed < _fadeTime)
+        {
+            float alpha = Mathf.Lerp(startAlpha, 0f, elapsed / _fadeTime);
+
+            SetAlpha(alpha);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        SetAlpha(0f);
+        _image.enabled = false;
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        Color color = _image.color;
+        color.a = alpha;
+        _image.color = color;
     }
 }

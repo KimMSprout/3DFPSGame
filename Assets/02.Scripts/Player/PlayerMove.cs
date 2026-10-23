@@ -38,6 +38,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.State != GameState.Playing) return;
+
         _stemina = Mathf.Min(_stemina + _steminaRecovery, MaxStemina);
 
         // 1. 키보드 입력을 받는다.
