@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 // 무언가에 부딪히면 폭발 이펙트를 남기고 풀로 반환되는 폭탄
 public class Bomb : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _explosionEffectPrefab;
-    [SerializeField] private float _damage = 100f;
+    [SerializeField] private float _damage = 10f;
     [SerializeField] private float _explosionRange = 4.5f;
 
     private PlayerFirePool _pool;
@@ -85,12 +86,21 @@ public class Bomb : MonoBehaviour
         {
             IDamageable damageable = collider.GetComponent<IDamageable>();
 
+            Vector3 hitPoint = collider.ClosestPoint(transform.position);
+
+            DamageInfo damageInfo = new()
+            {
+                Value = _damage,
+                HitPoint = hitPoint,
+                HitNormal = (transform.position - hitPoint).normalized
+            };
+
             if (damageable != null)
             {
-                damageable.TakeDamage(_damage);
+                damageable.TakeDamage(damageInfo);
             }
         }
-
-        // 1. 드럼통들에게 데미지를 준다.
     }
+
+    // 1. 드럼통들에게 데미지를 준다.
 }

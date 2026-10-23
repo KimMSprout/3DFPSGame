@@ -23,14 +23,14 @@ public class Drum : MonoBehaviour, IDamageable
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageInfo damageInfo)
     {
         if (_health <= 0)
         {
             return;
         }
 
-        _health -= damage;
+        _health -= damageInfo.Value;
 
         if (_health <= 0)
         {
@@ -67,9 +67,18 @@ public class Drum : MonoBehaviour, IDamageable
         {
             IDamageable damageable = collider.GetComponent<IDamageable>();
 
+            Vector3 hitPoint = collider.ClosestPoint(transform.position);
+
+            DamageInfo damageInfo = new()
+            {
+                Value = _damage,
+                HitPoint = hitPoint,
+                HitNormal = (transform.position - hitPoint).normalized
+            };
+
             if (damageable != null)
             {
-                damageable.TakeDamage(_damage);
+                damageable.TakeDamage(damageInfo);
             }
         }
 

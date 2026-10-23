@@ -4,9 +4,9 @@ public class Box : MonoBehaviour, IDamageable
 {
     private float health = 30f;
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageInfo damageInfo)
     {
-        health -= damage;
+        health -= damageInfo.Value;
 
         if (health <= 0f)
         {
