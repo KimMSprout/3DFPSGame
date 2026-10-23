@@ -9,12 +9,6 @@ public class UI_PlayerStats : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private PlayerMove _playerMove;
 
-    private void Awake()
-    {
-        _playerMove = GetComponent<PlayerMove>();
-        player = GetComponent<Player>();
-    }
-
     private void LateUpdate()
     {
         _healthSlider.value = player.Health / player.MaxHealth;
