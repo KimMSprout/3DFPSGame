@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     private const float Gravity = -20f;
     private const int MaxJump = 2;
-    private const float MaxStemina = 100f;
+    private float _maxStemina = 100f;
 
     private float _yVelocity = 0f; // 위 아래 속도, 매 프레임마다 중력 가속도가 붙는다.
     private float _xVelocity = 0f;
@@ -25,19 +25,19 @@ public class PlayerMove : MonoBehaviour
 
     [Header("컴포넌트")]
     [SerializeField] private CharacterController _characterController;
-    [SerializeField] private Slider _slider;
+
+    public float Stemina => _stemina;
+    public float MaxStemina => _maxStemina;
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _stemina = MaxStemina;
-        _slider.value = MaxStemina;
     }
 
     private void Update()
     {
         _stemina = Mathf.Min(_stemina + _steminaRecovery, MaxStemina);
-        _slider.value = _stemina;
 
         // 1. 키보드 입력을 받는다.
         float h = Input.GetAxisRaw("Horizontal");

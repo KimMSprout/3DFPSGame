@@ -26,12 +26,14 @@ public class Zombie : MonoBehaviour, IDamageable
     [Header("스탯")]
     [SerializeField] private float _idleInterval = 3f;
     [SerializeField] private float _detectDistance = 8f;
-    [SerializeField] private float _attackRange = 2f;
-    [SerializeField] private float _attackInterval = 1.2f;
+    [SerializeField] private float _attackDamage = 30f;
+    [SerializeField] private float _attackRange = 3f;
+    [SerializeField] private float _attackInterval = 3f;
     [SerializeField] private float _comabackDistance = 15f;
     [SerializeField] private float _randomRoamingDistance = 10f;
     [SerializeField] private float _moveSpeed = 5f;
-    [SerializeField] private float _health = 30f;
+    [SerializeField] private float _maxHealth = 30f;
+    [SerializeField] private float _health;
 
     [Header("이펙트")]
     [SerializeField] private GameObject _bloodSprayPrefab;
@@ -46,12 +48,16 @@ public class Zombie : MonoBehaviour, IDamageable
 
     private ZombieState _state = ZombieState.Idle;
 
+    public float Health => _health;
+    public float MaxHealth => _maxHealth;
+
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
 
         _player = GameObject.FindGameObjectWithTag("Player");
         _startPosition = transform.position;
+        _health = _maxHealth;
     }
 
     private void Update()
@@ -177,7 +183,7 @@ public class Zombie : MonoBehaviour, IDamageable
         // 플레이어가 공격 사정 거리 밖으로 나가면 쫓아!
         float distance = Vector3.Distance(transform.position, _player.transform.position);
 
-        if (distance < _attackRange)
+        if (distance > _attackRange)
         {
             Debug.Log($"{_state} => Trace");
             _state = ZombieState.Trace;
@@ -190,8 +196,24 @@ public class Zombie : MonoBehaviour, IDamageable
         {
             // TODO : 공격 애니메이션 실행
             // TODO : 플레이어를 떄려!
+            Ray ray = new Ray(transform.position, _player.transform.position - transform.position);
+            // Debug.DrawRay(transform.position, _player.transform.position - transform.position, Color.antiqueWhite, 10f);
 
-            Debug.Log("플레이어를 때렸습니다.");
+            RaycastHit hitInfo = new RaycastHit();
+
+            bool isHit = Physics.Raycast(ray, out hitInfo, _attackRange);
+
+            Debug.Log(isHit);
+            if (isHit)
+            {
+                DamageInfo damageInfo = new DamageInfo();
+                damageInfo.Value = _attackDamage;
+                damageInfo.HitPoint = hitInfo.point;
+                damageInfo.HitNormal = hitInfo.normal;
+
+                hitInfo.transform.GetComponent<Player>().TakeDamage(damageInfo);
+            }
+
             _attackTimer = 0f;
         }
     }
