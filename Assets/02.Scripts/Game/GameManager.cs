@@ -50,4 +50,14 @@ public class GameManager : MonoBehaviour
         _state = GameState.Playing;
         _stateText.gameObject.SetActive(false);
     }
+
+    public void GameOver()
+    {
+        _state = GameState.GameOver;
+
+        _stateText.gameObject.SetActive(true);
+
+        _stateText.text = "게임 오버";
+        _stateText.color = Color.red;
+    }
 }
