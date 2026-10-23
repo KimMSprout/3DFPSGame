@@ -101,14 +101,12 @@ public class PlayerGunFire : MonoBehaviour
             hitEffect.transform.forward = hitInfo.normal; // 수직 위치로 회전
             hitEffect.Play(true);
 
-            if (hitInfo.collider.tag == "Zombie")
-            {
-                hitInfo.transform.GetComponent<Zombie>().TakeDamage(_damage);
-            }
+            IDamageable damageable =
+                hitInfo.collider.GetComponent<IDamageable>();
 
-            if (hitInfo.collider.tag == "Drum")
+            if (damageable != null)
             {
-                hitInfo.transform.GetComponent<Drum>().TakeDamage(_damage);
+                damageable.TakeDamage(_damage);
             }
         }
     }

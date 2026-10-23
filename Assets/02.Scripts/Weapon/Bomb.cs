@@ -4,6 +4,8 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _explosionEffectPrefab;
+    [SerializeField] private float _damage = 100f;
+    [SerializeField] private float _explosionRange = 4.5f;
 
     private PlayerFirePool _pool;
     private Rigidbody _rigidbody;
@@ -57,6 +59,8 @@ public class Bomb : MonoBehaviour
 
         _hasCollided = true;
 
+        ApplyAreaDamage();
+
         ParticleSystem effect = Instantiate(_explosionEffectPrefab, transform.position, Quaternion.identity);
         effect.Play();
 
@@ -68,5 +72,25 @@ public class Bomb : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void ApplyAreaDamage()
+    {
+        // 0. 주위에 있는 드럼통들을 모두 찾는다.
+        // Physics.OverlapSphere(원점, 반지름, 찾을 레이어들)
+        Collider[] colliders =
+            Physics.OverlapSphere(transform.position, _explosionRange, LayerMask.GetMask("Drum", "Zombie"));
+
+        foreach (Collider collider in colliders)
+        {
+            IDamageable damageable = collider.GetComponent<IDamageable>();
+
+            if (damageable != null)
+            {
+                damageable.TakeDamage(_damage);
+            }
+        }
+
+        // 1. 드럼통들에게 데미지를 준다.
     }
 }
