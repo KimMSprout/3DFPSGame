@@ -14,11 +14,19 @@ public class ZombieHealthBar : MonoBehaviour
         _slider.value = 1f;
     }
 
+    private void Start()
+    {
+        _zombie.OnDamaged += OnDamage;
+    }
+
     private void LateUpdate()
     {
-        _slider.value = _zombie.Health / _zombie.MaxHealth;
-
         // 빌보드 : 체력바가 카메라를 쳐다보게 한다.
         _slider.transform.forward = Camera.main.transform.forward;
+    }
+
+    private void OnDamage()
+    {
+        _slider.value = _zombie.Health / _zombie.MaxHealth;
     }
 }

@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Lean.Pool;
 using UnityEngine;
 
 // FSM(유한 상태 머신) : 유한 개의 상태가 있고, 상태마다 행동을 다르게 함으로써 AI를 구현하는 유명한 방법
@@ -48,16 +50,30 @@ public class Zombie : MonoBehaviour, IDamageable
 
     private ZombieState _state = ZombieState.Idle;
 
+    // 이 좀비에게 붙어 있는 피 이펙트 인스턴스. 죽을 때 풀에 반환한다.
+    private readonly List<GameObject> _bloodSprays = new List<GameObject>();
+
     public float Health => _health;
     public float MaxHealth => _maxHealth;
 
-    private void Start()
+    public event Action ZombieDeathed;
+    public event Action OnDamaged;
+
+    private void Awake()
     {
         _controller = GetComponent<CharacterController>();
 
         _player = GameObject.FindGameObjectWithTag("Player");
         _startPosition = transform.position;
         _health = _maxHealth;
+    }
+
+    private void OnEnable()
+    {
+        _state = ZombieState.Idle;
+        _health = _maxHealth;
+        _controller.enabled = true;
+        OnDamaged?.Invoke();
     }
 
     private void Update()
@@ -228,15 +244,17 @@ public class Zombie : MonoBehaviour, IDamageable
         }
 
         _health -= damageInfo.Value;
+        OnDamaged?.Invoke();
 
         StopAllCoroutines();
 
         if (_health > 0)
         {
             // TODO : 맞은 부위에 피 이펙트를 실행하고 싶다.
-            GameObject bloodSpray = Instantiate(_bloodSprayPrefab, gameObject.transform);
+            GameObject bloodSpray = LeanPool.Spawn(_bloodSprayPrefab, gameObject.transform);
             bloodSpray.transform.position = damageInfo.HitPoint;
             bloodSpray.transform.forward = damageInfo.HitNormal;
+            _bloodSprays.Add(bloodSpray);
 
             Debug.Log($"{_state} -> Hit");
             _state = ZombieState.Hit;
@@ -264,7 +282,18 @@ public class Zombie : MonoBehaviour, IDamageable
         _controller.enabled = false;
         yield return new WaitForSeconds(0.5f); // 잠깐 멈칫한다!!
 
-        // 맞았으니 쫓아 온다.
-        Destroy(gameObject);
+        ZombieDeathed?.Invoke();
+
+        // 이미 자동 반환된 이펙트는 비활성 상태이므로 건너뛴다.
+        foreach (GameObject bloodSpray in _bloodSprays)
+        {
+            if (bloodSpray != null && bloodSpray.activeInHierarchy)
+            {
+                LeanPool.Despawn(bloodSpray);
+            }
+        }
+
+        _bloodSprays.Clear();
+        LeanPool.Despawn(gameObject);
     }
 }

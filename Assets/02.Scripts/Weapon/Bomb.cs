@@ -1,3 +1,4 @@
+using Lean.Pool;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -71,7 +72,8 @@ public class Bomb : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            _hasCollided = false;
+            LeanPool.Despawn(gameObject);
         }
     }
 

@@ -1,3 +1,4 @@
+using Lean.Pool;
 using UnityEngine;
 
 // 마우스 오른쪽 버튼을 누르면 시선이 바라보는 방향으로 수류탄을 던진다.
@@ -42,7 +43,7 @@ public class PlayerBombFire : MonoBehaviour
             return;
         }
 
-        Bomb bomb = PlayerFirePool.GetBomb(_bombPrefab, _firePoint.position, Quaternion.identity);
+        Bomb bomb = LeanPool.Spawn(_bombPrefab, _firePoint.position, Quaternion.identity);
 
         if (bomb == null)
         {
