@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // 미니맵 카메라 : 플레이어 머리 위에서 아래를 내려다보며 따라다닌다.
@@ -6,6 +7,25 @@ public class MinimapCamera : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private float _height = 0f;
 
+    private Camera _camera;
+
+    private void Start()
+    {
+        _camera = GetComponent<Camera>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Plus))
+        {
+            _camera.orthographicSize -= 1;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            _camera.orthographicSize += 1;
+        }
+    }
 
     private void LateUpdate()
     {
