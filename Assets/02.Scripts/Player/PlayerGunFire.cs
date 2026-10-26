@@ -41,8 +41,10 @@ public class PlayerGunFire : MonoBehaviour
 
         _fireTimer -= Time.deltaTime;
 
+        bool isMouseVisible = Cursor.visible;
+
         // 1. 마우스 왼쪽 버튼 입력 받기
-        if (Input.GetButton("Fire1") && _fireTimer <= 0f)
+        if (!isMouseVisible && Input.GetButton("Fire1") && _fireTimer <= 0f)
         {
             Fire();
             _fireTimer = _fireInterval;

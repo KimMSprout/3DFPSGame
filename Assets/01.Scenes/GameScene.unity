@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 33558302}
   - component: {fileID: 33558301}
   m_Layer: 0
-  m_Name: CursorManager
+  m_Name: '@CursorManager'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1153,7 +1153,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 394382747}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2070137969}
+        m_TargetAssemblyTypeName: UI_Minimap, Assembly-CSharp
+        m_MethodName: MinusButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &394382747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2696,7 +2708,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1055545399}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2070137969}
+        m_TargetAssemblyTypeName: UI_Minimap, Assembly-CSharp
+        m_MethodName: PlusButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1055545399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4579,6 +4603,7 @@ GameObject:
   - component: {fileID: 2070137966}
   - component: {fileID: 2070137968}
   - component: {fileID: 2070137967}
+  - component: {fileID: 2070137969}
   m_Layer: 5
   m_Name: UI_Minimap
   m_TagString: Untagged
@@ -4646,6 +4671,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070137965}
   m_CullTransparentMesh: 1
+--- !u!114 &2070137969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070137965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce22eed69d4499641bbabb9986548139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Minimap
+  _minimapCamera: {fileID: 384863288}
 --- !u!1001 &2146059049810808816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4773,11 +4811,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 522078772}
+  - {fileID: 33558302}
   - {fileID: 330585546}
   - {fileID: 384863287}
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 33558302}
   - {fileID: 1903861900}
   - {fileID: 1616074487}
   - {fileID: 643316035}
