@@ -23,7 +23,7 @@ public class ZombieSpawner : MonoBehaviour
         {
             Transform spawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Length)];
 
-            GameObject zombiePrefab = LeanPool.Spawn(_zombiePrefab, spawnPoint.position + Vector3.up * 1.5f,
+            GameObject zombiePrefab = LeanPool.Spawn(_zombiePrefab, spawnPoint.position + Vector3.up,
                 transform.rotation, gameObject.transform);
             Zombie zombie = zombiePrefab.GetComponent<Zombie>();
 
