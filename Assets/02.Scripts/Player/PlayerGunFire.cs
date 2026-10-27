@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Lean.Pool;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +27,31 @@ public class PlayerGunFire : MonoBehaviour
     [SerializeField] private Text _maxMagazineText;
     [SerializeField] private Text _currentMagazineText;
 
+    [Header("탄환")]
+    [SerializeField] private Transform _muzzle;
+    [SerializeField] private Material _bulletMaterial;
+    [SerializeField] private float _bulletLineWidth = 0.02f;
+    [SerializeField] private float _bulletLineDuration = 0.2f;
+
+    private Coroutine _bulletLineCoroutine;
+
+    private LineRenderer _lineRenderer;
+
     private float _fireTimer = 0f;
     private bool _isReloading = false;
 
     private void Awake()
     {
         _currentMagazine = _reloadMagazine;
+
+        _lineRenderer = gameObject.AddComponent<LineRenderer>();
+        _lineRenderer.positionCount = 2;
+        _lineRenderer.startWidth = _bulletLineWidth;
+        _lineRenderer.endWidth = _bulletLineWidth;
+        _lineRenderer.enabled = false;
+        _lineRenderer.startColor = Color.red;
+        _lineRenderer.endColor = Color.yellow;
+
         PlayerFirePool.RegisterHitEffect(_hitEffectPrefab);
     }
 
@@ -110,6 +130,7 @@ public class PlayerGunFire : MonoBehaviour
             damageInfo.HitPoint = hitInfo.point;
             damageInfo.HitNormal = hitInfo.normal;
 
+            DrawBullet(hitInfo.point, _muzzle.transform.position);
 
             IDamageable damageable =
                 hitInfo.collider.GetComponent<IDamageable>();
@@ -143,5 +164,26 @@ public class PlayerGunFire : MonoBehaviour
 
         _maxMagazineText.text = _maxMagazine.ToString();
         _currentMagazineText.text = _currentMagazine.ToString();
+    }
+
+    private void DrawBullet(Vector3 start, Vector3 end)
+    {
+        _lineRenderer.SetPosition(0, start);
+        _lineRenderer.SetPosition(1, end);
+        _lineRenderer.enabled = true;
+
+        if (_bulletLineCoroutine != null)
+        {
+            StopCoroutine(_bulletLineCoroutine);
+        }
+
+        _bulletLineCoroutine = StartCoroutine(HideBullet_Coroutine());
+    }
+
+    private IEnumerator HideBullet_Coroutine()
+    {
+        yield return new WaitForSeconds(_bulletLineDuration);
+        _lineRenderer.enabled = false;
+        _bulletLineCoroutine = null;
     }
 }
