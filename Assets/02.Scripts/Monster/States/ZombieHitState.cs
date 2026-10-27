@@ -10,6 +10,7 @@ public class ZombieHitState : ZombieStateBase
 
     public override void Enter()
     {
+        _zombie.StopMove();
         _zombie.StartCoroutine(Stagger_Coroutine());
     }
 

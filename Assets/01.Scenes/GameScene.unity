@@ -4265,7 +4265,7 @@ MonoBehaviour:
   _jumpPower: 10
   _dashSpeedMultiplier: 1.2
   _stemina: 100
-  _steminaRecovery: 0.1
+  _steminaRecovery: 0.2
   _jumpCost: 40
   _sprintCost: 0.3
   _characterController: {fileID: 0}

@@ -10,7 +10,8 @@ public class ZombieDeathState : ZombieStateBase
 
     public override void Enter()
     {
-        _zombie.Controller.enabled = false;
+        _zombie.StopMove();
+        _zombie.Agent.enabled = false;
         _zombie.StartCoroutine(Death_Coroutine());
     }
 

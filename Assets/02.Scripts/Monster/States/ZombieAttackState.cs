@@ -7,6 +7,11 @@ public class ZombieAttackState : ZombieStateBase
 
     public ZombieAttackState(Zombie zombie) : base(zombie) { }
 
+    public override void Enter()
+    {
+        _zombie.StopMove();
+    }
+
     public override void Update()
     {
         // 플레이어가 공격 사정 거리 밖으로 나가면 쫓아!

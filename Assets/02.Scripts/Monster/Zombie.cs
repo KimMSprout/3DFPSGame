@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
+using UnityEngine.AI;
 
 // FSM(유한 상태 머신) : 유한 개의 상태가 있고, 상태마다 행동을 다르게 함으로써 AI를 구현하는 유명한 방법
 // - 상태 : 객체가 가질 수 있는 어떤 조건이나 상황
@@ -21,6 +22,7 @@ public enum ZombieState
     Death, // 죽음 : 쓰러지고 잠시 뒤 사라진다.
 }
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Zombie : MonoBehaviour, IDamageable
 {
     [Header("스탯")]
@@ -38,7 +40,7 @@ public class Zombie : MonoBehaviour, IDamageable
     [Header("이펙트")]
     [SerializeField] private GameObject _bloodSprayPrefab;
 
-    private CharacterController _controller;
+    private NavMeshAgent _agent;
     private GameObject _player;
 
     private readonly Dictionary<ZombieState, IZombieState> _states = new Dictionary<ZombieState, IZombieState>();
@@ -52,7 +54,7 @@ public class Zombie : MonoBehaviour, IDamageable
     public float MaxHealth => _maxHealth;
 
     // 상태 클래스가 읽는 값들
-    public CharacterController Controller => _controller;
+    public NavMeshAgent Agent => _agent;
     public GameObject Player => _player;
     public Vector3 StartPosition { get; set; }
     public float IdleInterval => _idleInterval;
@@ -69,10 +71,11 @@ public class Zombie : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        _controller = GetComponent<CharacterController>();
+        // 길을 찾아 걷게 해주는 컴포넌트 NavMeshAgent를 찾아서 참조. 모든 이동은 이 agent가 맡는다.
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.speed = _moveSpeed;
 
         _player = GameObject.FindGameObjectWithTag("Player");
-        StartPosition = transform.position;
         _health = _maxHealth;
 
         _states[ZombieState.Idle] = new ZombieIdleState(this);
@@ -87,7 +90,11 @@ public class Zombie : MonoBehaviour, IDamageable
     private void OnEnable()
     {
         _health = _maxHealth;
-        _controller.enabled = true;
+
+        // 죽을 때 꺼둔 agent를 다시 켜면 현재 위치에서 가장 가까운 NavMesh 위로 올라선다.
+        _agent.enabled = true;
+        StartPosition = transform.position;
+
         ChangeState(ZombieState.Idle);
         OnDamaged?.Invoke();
     }
@@ -110,6 +117,24 @@ public class Zombie : MonoBehaviour, IDamageable
         _state = next;
         _currentState = _states[next];
         _currentState.Enter();
+    }
+
+    // 상태 클래스가 쓰는 이동 명령. agent가 NavMesh 위에 없으면 아무것도 하지 않는다.
+    public void MoveTo(Vector3 destination, float stoppingDistance = 0f)
+    {
+        if (_agent.isOnNavMesh == false) return;
+
+        _agent.stoppingDistance = stoppingDistance;
+        _agent.isStopped = false;
+        _agent.SetDestination(destination);
+    }
+
+    public void StopMove()
+    {
+        if (_agent.isOnNavMesh == false) return;
+
+        _agent.isStopped = true;
+        _agent.ResetPath();
     }
 
     public float DistanceToPlayer()

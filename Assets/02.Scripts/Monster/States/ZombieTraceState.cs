@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// 추격 : 플레이어를 쫓아간다.
+// 추격 : NavMeshAgent로 길을 찾아 플레이어를 쫓아간다.
 public class ZombieTraceState : ZombieStateBase
 {
     public ZombieTraceState(Zombie zombie) : base(zombie) { }
@@ -21,11 +21,6 @@ public class ZombieTraceState : ZombieStateBase
             return;
         }
 
-        Vector3 direction = _zombie.Player.transform.position - _zombie.transform.position;
-        direction.y = 0f;
-        direction.Normalize();
-
-        _zombie.transform.forward = direction;
-        _zombie.Controller.Move(direction * _zombie.MoveSpeed * Time.deltaTime);
+        _zombie.MoveTo(_zombie.Player.transform.position, _zombie.AttackRange);
     }
 }

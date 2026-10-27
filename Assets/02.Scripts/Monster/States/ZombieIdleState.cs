@@ -14,6 +14,7 @@ public class ZombieIdleState : ZombieStateBase
     public override void Enter()
     {
         _idleTimer = 0f;
+        _zombie.StopMove();
     }
 
     public override void Update()
