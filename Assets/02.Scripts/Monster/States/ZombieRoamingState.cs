@@ -6,7 +6,9 @@ public class ZombieRoamingState : ZombieStateBase
 {
     private Vector3 _endPosition;
 
-    public ZombieRoamingState(Zombie zombie) : base(zombie) { }
+    public ZombieRoamingState(Zombie zombie) : base(zombie)
+    {
+    }
 
     public override void Enter()
     {
@@ -31,14 +33,14 @@ public class ZombieRoamingState : ZombieStateBase
     {
         if (_zombie.DistanceToPlayer() < _zombie.DetectDistance)
         {
-            _zombie.ChangeState(ZombieState.Trace);
+            _zombie.ChangeState(ZombieState.Trace, "IdleToMove");
             return;
         }
 
         if (Vector3.Distance(_zombie.transform.position, _endPosition) < 1f)
         {
             _zombie.StartPosition = _endPosition;
-            _zombie.ChangeState(ZombieState.Idle);
+            _zombie.ChangeState(ZombieState.Idle, "MoveToIdle");
         }
     }
 }

@@ -44,11 +44,15 @@ public class Zombie : MonoBehaviour, IDamageable
     private GameObject _player;
 
     private readonly Dictionary<ZombieState, IZombieState> _states = new Dictionary<ZombieState, IZombieState>();
+    public Dictionary<ZombieState, IZombieState> States => _states;
     private IZombieState _currentState;
+    private ZombieAttackState _attackState;
     private ZombieState _state = ZombieState.Idle;
 
     // 이 좀비에게 붙어 있는 피 이펙트 인스턴스. 죽을 때 풀에 반환한다.
     private readonly List<GameObject> _bloodSprays = new List<GameObject>();
+
+    public Animator animator;
 
     public float Health => _health;
     public float MaxHealth => _maxHealth;
@@ -73,6 +77,8 @@ public class Zombie : MonoBehaviour, IDamageable
     {
         // 길을 찾아 걷게 해주는 컴포넌트 NavMeshAgent를 찾아서 참조. 모든 이동은 이 agent가 맡는다.
         _agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
+
         _agent.speed = _moveSpeed;
 
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -82,7 +88,8 @@ public class Zombie : MonoBehaviour, IDamageable
         _states[ZombieState.Roaming] = new ZombieRoamingState(this);
         _states[ZombieState.Trace] = new ZombieTraceState(this);
         _states[ZombieState.Comback] = new ZombieComebackState(this);
-        _states[ZombieState.Attack] = new ZombieAttackState(this);
+        _attackState = new ZombieAttackState(this);
+        _states[ZombieState.Attack] = _attackState;
         _states[ZombieState.Hit] = new ZombieHitState(this);
         _states[ZombieState.Death] = new ZombieDeathState(this);
     }
@@ -119,6 +126,20 @@ public class Zombie : MonoBehaviour, IDamageable
         _currentState.Enter();
     }
 
+    public void ChangeState(ZombieState next, string trigger)
+    {
+        if (_currentState != null)
+        {
+            Debug.Log($"{_state} => {next}");
+            _currentState.Exit();
+        }
+
+        _state = next;
+        _currentState = _states[next];
+        animator.SetTrigger(trigger);
+        _currentState.Enter();
+    }
+
     // 상태 클래스가 쓰는 이동 명령. agent가 NavMesh 위에 없으면 아무것도 하지 않는다.
     public void MoveTo(Vector3 destination, float stoppingDistance = 0f)
     {
@@ -135,6 +156,14 @@ public class Zombie : MonoBehaviour, IDamageable
 
         _agent.isStopped = true;
         _agent.ResetPath();
+    }
+
+    // 공격 애니메이션의 타격 이벤트(ZombieHitEvent)가 호출. 공격 상태일 때만 데미지를 준다.
+    public void AttackAction()
+    {
+        if (_state != ZombieState.Attack) return;
+
+        _attackState.AttackAction();
     }
 
     public float DistanceToPlayer()
@@ -162,11 +191,11 @@ public class Zombie : MonoBehaviour, IDamageable
             bloodSpray.transform.forward = damageInfo.HitNormal;
             _bloodSprays.Add(bloodSpray);
 
-            ChangeState(ZombieState.Hit);
+            ChangeState(ZombieState.Hit, "Hit");
         }
         else
         {
-            ChangeState(ZombieState.Death);
+            ChangeState(ZombieState.Death, "Death");
         }
     }
 

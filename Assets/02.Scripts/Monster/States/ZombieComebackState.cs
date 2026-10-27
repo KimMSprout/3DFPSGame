@@ -3,7 +3,9 @@ using UnityEngine;
 // 복귀 : 처음 자리로 돌아간다.
 public class ZombieComebackState : ZombieStateBase
 {
-    public ZombieComebackState(Zombie zombie) : base(zombie) { }
+    public ZombieComebackState(Zombie zombie) : base(zombie)
+    {
+    }
 
     public override void Enter()
     {
@@ -14,7 +16,7 @@ public class ZombieComebackState : ZombieStateBase
     {
         if (Vector3.Distance(_zombie.transform.position, _zombie.StartPosition) < 1f)
         {
-            _zombie.ChangeState(ZombieState.Idle);
+            _zombie.ChangeState(ZombieState.Idle, "MoveToIdle");
         }
     }
 }

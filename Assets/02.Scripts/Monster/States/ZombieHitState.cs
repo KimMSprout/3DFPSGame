@@ -6,7 +6,9 @@ public class ZombieHitState : ZombieStateBase
 {
     private const float StaggerTime = 0.3f;
 
-    public ZombieHitState(Zombie zombie) : base(zombie) { }
+    public ZombieHitState(Zombie zombie) : base(zombie)
+    {
+    }
 
     public override void Enter()
     {
@@ -14,13 +16,15 @@ public class ZombieHitState : ZombieStateBase
         _zombie.StartCoroutine(Stagger_Coroutine());
     }
 
-    public override void Update() { }
+    public override void Update()
+    {
+    }
 
     private IEnumerator Stagger_Coroutine()
     {
         yield return new WaitForSeconds(StaggerTime);
 
         // 맞았으니 쫓아 온다.
-        _zombie.ChangeState(ZombieState.Trace);
+        _zombie.ChangeState(ZombieState.Trace, "IdleToHit");
     }
 }

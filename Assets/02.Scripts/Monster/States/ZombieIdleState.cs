@@ -23,14 +23,14 @@ public class ZombieIdleState : ZombieStateBase
 
         if (_zombie.DistanceToPlayer() < _zombie.DetectDistance)
         {
-            _zombie.ChangeState(ZombieState.Trace);
+            _zombie.ChangeState(ZombieState.Trace, "IdleToMove");
             return;
         }
 
         if (_idleTimer >= _idleInterval)
         {
             _idleInterval = Random.Range(1f, 3f);
-            _zombie.ChangeState(ZombieState.Roaming);
+            _zombie.ChangeState(ZombieState.Roaming, "IdleToMove");
         }
     }
 }
