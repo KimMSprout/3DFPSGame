@@ -15,6 +15,13 @@ public class ZombieAttackState : ZombieStateBase
         _zombie.StopMove();
     }
 
+    public override void Exit()
+    {
+        // 공격 도중 플레이어가 벗어나면 타격 이벤트가 오지 않으므로 직접 초기화한다.
+        _attackTimer = 0f;
+        _isAttacking = false;
+    }
+
     public override void Update()
     {
         // 플레이어가 공격 사정 거리 밖으로 나가면 쫓아!

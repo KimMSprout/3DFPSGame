@@ -37,7 +37,7 @@ public class ZombieTraceState : ZombieStateBase
 
         if (_zombie.DistanceToPlayer() < _zombie.AttackRange)
         {
-            _zombie.ChangeState(ZombieState.Attack, "MoveToAttack");
+            _zombie.ChangeState(ZombieState.Attack, "MoveToAttackDelay");
             return;
         }
 
