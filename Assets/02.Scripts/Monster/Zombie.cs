@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
@@ -37,10 +38,17 @@ public class Zombie : MonoBehaviour, IDamageable
     [SerializeField] private float _maxHealth = 30f;
     [SerializeField] private float _health;
 
+    [Header("점프")]
+    [SerializeField] private float _jumpHeight = 2f;
+    [SerializeField] private float _jumpSpeed = 6f;
+    [SerializeField] private float _minJumpDuration = 0.3f;
+
     [Header("이펙트")]
     [SerializeField] private GameObject _bloodSprayPrefab;
 
     private NavMeshAgent _agent;
+    private bool _isJumping;
+    private Vector3 _jumpEnd;
     private GameObject _player;
 
     private readonly Dictionary<ZombieState, IZombieState> _states = new Dictionary<ZombieState, IZombieState>();
@@ -69,6 +77,7 @@ public class Zombie : MonoBehaviour, IDamageable
     public float ComebackDistance => _comabackDistance;
     public float RandomRoamingDistance => _randomRoamingDistance;
     public float MoveSpeed => _moveSpeed;
+    public bool IsJumping => _isJumping;
 
     public event Action ZombieDeathed;
     public event Action OnDamaged;
@@ -100,6 +109,8 @@ public class Zombie : MonoBehaviour, IDamageable
 
         // 죽을 때 꺼둔 agent를 다시 켜면 현재 위치에서 가장 가까운 NavMesh 위로 올라선다.
         _agent.enabled = true;
+        _agent.autoTraverseOffMeshLink = true;
+        _isJumping = false;
         StartPosition = transform.position;
 
         ChangeState(ZombieState.Idle);
@@ -158,6 +169,71 @@ public class Zombie : MonoBehaviour, IDamageable
         _agent.ResetPath();
     }
 
+    // 추격 상태가 켜고 끄는 값. false면 agent가 링크를 직접 건너지 않고 JumpAcrossLink가 대신 건넌다.
+    public void SetAutoTraverseLink(bool value)
+    {
+        _agent.autoTraverseOffMeshLink = value;
+    }
+
+    // agent가 NavMesh Link 위에 올라서면 포물선 점프로 건너편까지 이동한다.
+    public void TryJumpAcrossLink()
+    {
+        if (_isJumping || _agent.isOnNavMesh == false || _agent.isOnOffMeshLink == false) return;
+
+        StartCoroutine(JumpAcrossLink_Coroutine());
+    }
+
+    private IEnumerator JumpAcrossLink_Coroutine()
+    {
+        _isJumping = true;
+
+        OffMeshLinkData link = _agent.currentOffMeshLinkData;
+        Vector3 start = transform.position;
+        Vector3 end = link.endPos + Vector3.up * _agent.baseOffset;
+        _jumpEnd = end;
+
+        Vector3 flat = end - start;
+        flat.y = 0f;
+        if (flat.sqrMagnitude > 0.001f)
+        {
+            transform.rotation = Quaternion.LookRotation(flat);
+        }
+
+        // 거리를 속도로 나눈 시간 동안 t를 0에서 1로 올린다.
+        float duration = Mathf.Max(_minJumpDuration, Vector3.Distance(start, end) / _jumpSpeed);
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+
+            // 직선 보간 + 포물선 높이(4t(1-t)는 t=0.5에서 1이 되는 포물선)
+            Vector3 position = Vector3.Lerp(start, end, t);
+            position.y += _jumpHeight * 4f * t * (1f - t);
+            transform.position = position;
+
+            yield return null;
+        }
+
+        FinishJump();
+    }
+
+    // 점프를 끝내고 agent에게 링크 통과 완료를 알린다. 피격으로 코루틴이 끊겼을 때도 호출된다.
+    private void FinishJump()
+    {
+        transform.position = _jumpEnd;
+        _isJumping = false;
+
+        if (_agent.isOnNavMesh && _agent.isOnOffMeshLink)
+        {
+            _agent.CompleteOffMeshLink();
+        }
+
+        // 점프 중에 추격이 끝났다면 기본 동작(자동 통과)으로 되돌린다.
+        _agent.autoTraverseOffMeshLink = _state != ZombieState.Trace;
+    }
+
     // 공격 애니메이션의 타격 이벤트(ZombieHitEvent)가 호출. 공격 상태일 때만 데미지를 준다.
     public void AttackAction()
     {
@@ -182,6 +258,12 @@ public class Zombie : MonoBehaviour, IDamageable
         OnDamaged?.Invoke();
 
         StopAllCoroutines();
+
+        // 점프 코루틴이 끊기면 agent가 링크 위에 남으므로 도착 지점에서 마무리한다.
+        if (_isJumping)
+        {
+            FinishJump();
+        }
 
         if (_health > 0)
         {

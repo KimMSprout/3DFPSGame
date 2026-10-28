@@ -30,10 +30,13 @@ public class PlayerMove : MonoBehaviour
     public float Stemina => _stemina;
     public float MaxStemina => _maxStemina;
 
+    private Animator _animator;
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _stemina = MaxStemina;
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -51,6 +54,9 @@ public class PlayerMove : MonoBehaviour
         // 2. 키보드 입력에 따라 방향을 구한다.
         Vector3 direction = new Vector3(h, 0f, v);
         direction.Normalize(); // 대각선이어도 방향의 길이 1로 바꾸기 위해
+
+        _animator.SetFloat("MoveMotion", direction.magnitude);
+
         direction = transform.TransformDirection(direction);
         // 로컬 좌표계 : 한 대상을 중심 (이 파일의 경우는 플레이어 중심)
         // 월드 좌표계 : 세상을 중심

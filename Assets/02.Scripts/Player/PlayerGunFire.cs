@@ -40,8 +40,12 @@ public class PlayerGunFire : MonoBehaviour
     private float _fireTimer = 0f;
     private bool _isReloading = false;
 
+    private Animator _animator;
+
     private void Awake()
     {
+        _animator = GetComponentInChildren<Animator>();
+
         _currentMagazine = _reloadMagazine;
 
         _lineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -66,6 +70,11 @@ public class PlayerGunFire : MonoBehaviour
         // 1. 마우스 왼쪽 버튼 입력 받기
         if (!isMouseVisible && Input.GetButton("Fire1") && _fireTimer <= 0f)
         {
+            if (_animator.GetFloat("MoveSpeed") == 0f)
+            {
+                _animator.SetTrigger("Attack");
+            }
+
             Fire();
             _fireTimer = _fireInterval;
         }
