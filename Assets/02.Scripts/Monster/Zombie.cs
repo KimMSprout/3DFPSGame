@@ -296,6 +296,16 @@ public class Zombie : MonoBehaviour, IDamageable
         }
 
         _bloodSprays.Clear();
-        LeanPool.Despawn(gameObject);
+
+        // 씬에 미리 배치된 좀비는 풀에서 만든 게 아니므로 직접 파괴한다.
+        LeanGameObjectPool pool = null;
+        if (LeanPool.Links.ContainsKey(gameObject) || LeanGameObjectPool.TryFindPoolByClone(gameObject, ref pool))
+        {
+            LeanPool.Despawn(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

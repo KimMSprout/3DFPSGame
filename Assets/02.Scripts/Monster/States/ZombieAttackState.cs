@@ -20,6 +20,9 @@ public class ZombieAttackState : ZombieStateBase
         // 공격 도중 플레이어가 벗어나면 타격 이벤트가 오지 않으므로 직접 초기화한다.
         _attackTimer = 0f;
         _isAttacking = false;
+
+        // Move에서만 소비되는 트리거가 남아 있으면 Move로 나가자마자 AttackDelay로 되돌아간다.
+        _zombie.animator.ResetTrigger("MoveToAttackDelay");
     }
 
     public override void Update()
@@ -34,8 +37,6 @@ public class ZombieAttackState : ZombieStateBase
         if (_isAttacking == false)
         {
             _attackTimer += Time.deltaTime;
-
-            _zombie.animator.SetTrigger("MoveToAttackDelay");
         }
 
         if (_attackTimer < _zombie.AttackInterval) return;

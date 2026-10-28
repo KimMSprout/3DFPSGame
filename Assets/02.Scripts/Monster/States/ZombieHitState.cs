@@ -24,7 +24,7 @@ public class ZombieHitState : ZombieStateBase
     {
         yield return new WaitForSeconds(StaggerTime);
 
-        // 맞았으니 쫓아 온다.
-        _zombie.ChangeState(ZombieState.Trace, "IdleToHit");
+        // 맞았으니 쫓아 온다. Hit 애니메이션은 끝나면 Animator가 알아서 Move로 넘긴다.
+        _zombie.ChangeState(ZombieState.Trace);
     }
 }
