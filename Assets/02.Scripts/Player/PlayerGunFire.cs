@@ -70,13 +70,14 @@ public class PlayerGunFire : MonoBehaviour
         // 1. 마우스 왼쪽 버튼 입력 받기
         if (!isMouseVisible && Input.GetButton("Fire1") && _fireTimer <= 0f)
         {
-            if (_animator.GetFloat("MoveSpeed") == 0f)
-            {
-                _animator.SetTrigger("Attack");
-            }
-
+            _animator.SetBool("Fire", true);
             Fire();
             _fireTimer = _fireInterval;
+        }
+
+        else
+        {
+            _animator.SetBool("Fire", false);
         }
 
         // 2. 키보드 R키 재장전
