@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = System.Random;
 
 // FSM(유한 상태 머신) : 유한 개의 상태가 있고, 상태마다 행동을 다르게 함으로써 AI를 구현하는 유명한 방법
 // - 상태 : 객체가 가질 수 있는 어떤 조건이나 상황
@@ -45,6 +46,8 @@ public class Zombie : MonoBehaviour, IDamageable
 
     [Header("이펙트")]
     [SerializeField] private GameObject _bloodSprayPrefab;
+
+    [SerializeField] private GameObject _coinPrefab;
 
     private NavMeshAgent _agent;
     private bool _isJumping;
@@ -306,6 +309,17 @@ public class Zombie : MonoBehaviour, IDamageable
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void SpawnCoin()
+    {
+        int random = UnityEngine.Random.Range(0, 5);
+
+
+        for (int i = 0; i < random; i++)
+        {
+            GameObject coin = LeanPool.Spawn(_coinPrefab, transform);
         }
     }
 }

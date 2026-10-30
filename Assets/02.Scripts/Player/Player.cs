@@ -24,8 +24,6 @@ public class Player : MonoBehaviour, IDamageable
         _health = _maxHealth;
         _animator = GetComponentInChildren<Animator>();
         _injuredLayerIndex = _animator.GetLayerIndex("Injured Layer");
-
-        Debug.Log(_injuredLayerIndex);
     }
 
     public void TakeDamage(DamageInfo damageInfo)

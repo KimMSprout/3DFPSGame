@@ -7,11 +7,10 @@ public class UI_HitEffect : MonoBehaviour
     [SerializeField] private float _flashTime = 0.2f;
     [SerializeField] private float _fadeTime = 0.3f;
 
-    private Image _image;
+    [SerializeField] private Image _image;
 
     private void Awake()
     {
-        _image = GetComponentInChildren<Image>(true);
         _image.enabled = false;
     }
 
@@ -39,11 +38,13 @@ public class UI_HitEffect : MonoBehaviour
     {
         SetAlpha(1f);
 
+        _image.gameObject.SetActive(true);
         _image.enabled = true;
 
         yield return new WaitForSeconds(_flashTime);
 
         _image.enabled = false;
+        _image.gameObject.SetActive(false);
     }
 
     public void Fade(float alpha)
@@ -71,7 +72,6 @@ public class UI_HitEffect : MonoBehaviour
         }
 
         SetAlpha(0f);
-        _image.enabled = false;
     }
 
     private void SetAlpha(float alpha)

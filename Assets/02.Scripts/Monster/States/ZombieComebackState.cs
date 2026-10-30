@@ -14,7 +14,11 @@ public class ZombieComebackState : ZombieStateBase
 
     public override void Update()
     {
-        if (Vector3.Distance(_zombie.transform.position, _zombie.StartPosition) < 1f)
+        // agent의 baseOffset 때문에 transform의 Y가 NavMesh보다 높으므로 XZ 평면 거리로 비교한다.
+        Vector3 offset = _zombie.transform.position - _zombie.StartPosition;
+        offset.y = 0f;
+
+        if (offset.sqrMagnitude < 1f)
         {
             _zombie.ChangeState(ZombieState.Idle, "MoveToIdle");
         }

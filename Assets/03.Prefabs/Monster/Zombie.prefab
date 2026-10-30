@@ -401,13 +401,17 @@ MonoBehaviour:
   _detectDistance: 8
   _attackDamage: 30
   _attackRange: 1
-  _attackInterval: 2
+  _attackInterval: 0.5
   _comabackDistance: 50
   _randomRoamingDistance: 20
   _moveSpeed: 5
   _maxHealth: 30
   _health: 30
+  _jumpHeight: 2
+  _jumpSpeed: 6
+  _minJumpDuration: 0.3
   _bloodSprayPrefab: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
+  _coinPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
   animator: {fileID: 0}
 --- !u!114 &1120926122150101161
 MonoBehaviour:

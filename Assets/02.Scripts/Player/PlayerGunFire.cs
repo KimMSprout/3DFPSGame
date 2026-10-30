@@ -14,18 +14,19 @@ public enum MyKey
 public class PlayerGunFire : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _hitEffectPrefab;
+    [SerializeField] private PlayerWeaponMode _weaponMode;
 
     [Header("스탯")]
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _damage = 10f;
-    [SerializeField] private float _fireInterval = 0.1f;
+    [SerializeField] private float _fireInterval = 2f;
     [SerializeField] private float _reloadTime = 3f;
     [SerializeField] private int _maxMagazine = 250;
     [SerializeField] private int _reloadMagazine = 50;
     [SerializeField] private int _currentMagazine;
 
-    [SerializeField] private Text _maxMagazineText;
-    [SerializeField] private Text _currentMagazineText;
+    [SerializeField] private float _flashTime = 0.2f;
+    [SerializeField] private GameObject[] _muzzleFlashes;
 
     [Header("탄환")]
     [SerializeField] private Transform _muzzle;
@@ -42,9 +43,16 @@ public class PlayerGunFire : MonoBehaviour
 
     private Animator _animator;
 
+    // 매개변수: 현재 탄창 탄약, 남은 예비 탄약
+    public event Action<int, int> OnAmmoChanged;
+
+    public int CurrentMagazine => _currentMagazine;
+    public int MaxMagazine => _maxMagazine;
+
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
+        _weaponMode = GetComponent<PlayerWeaponMode>();
 
         _currentMagazine = _reloadMagazine;
 
@@ -62,6 +70,8 @@ public class PlayerGunFire : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.State != GameState.Playing) return;
+
+        if (_weaponMode.Mode == WeaponMode.Melee) return;
 
         _fireTimer -= Time.deltaTime;
 
@@ -92,13 +102,15 @@ public class PlayerGunFire : MonoBehaviour
 
     private void Fire()
     {
-        if (_isReloading || _currentMagazine <= 0)
+        if (_isReloading || _currentMagazine <= 0 || _animator.GetBool("Throw"))
         {
             return;
         }
 
+        StartCoroutine(MuzzelFlash_Coroutine());
+
         _currentMagazine--;
-        _currentMagazineText.text = _currentMagazine.ToString();
+        OnAmmoChanged?.Invoke(_currentMagazine, _maxMagazine);
 
         // Ray : 레이저 (시작 위치, 날아갈 방향)
         // Phsics.RayCast : 레이저를 발사
@@ -172,8 +184,7 @@ public class PlayerGunFire : MonoBehaviour
 
         Debug.Log("재장전 종료!");
 
-        _maxMagazineText.text = _maxMagazine.ToString();
-        _currentMagazineText.text = _currentMagazine.ToString();
+        OnAmmoChanged?.Invoke(_currentMagazine, _maxMagazine);
     }
 
     private void DrawBullet(Vector3 start, Vector3 end)
@@ -195,5 +206,19 @@ public class PlayerGunFire : MonoBehaviour
         yield return new WaitForSeconds(_bulletLineDuration);
         _lineRenderer.enabled = false;
         _bulletLineCoroutine = null;
+    }
+
+    private IEnumerator MuzzelFlash_Coroutine()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, _muzzleFlashes.Length);
+
+        GameObject flash = _muzzleFlashes[randomIndex];
+        flash.SetActive(true);
+
+        Debug.Log(randomIndex);
+
+        yield return new WaitForSeconds(_flashTime);
+
+        flash.SetActive(false);
     }
 }
