@@ -131,7 +131,7 @@ public class Zombie : MonoBehaviour, IDamageable
     {
         if (_currentState != null)
         {
-            Debug.Log($"{_state} => {next}");
+            GameLogger.Log($"{_state} => {next}");
             _currentState.Exit();
         }
 
@@ -144,7 +144,7 @@ public class Zombie : MonoBehaviour, IDamageable
     {
         if (_currentState != null)
         {
-            Debug.Log($"{_state} => {next}");
+            GameLogger.Log($"{_state} => {next}");
             _currentState.Exit();
         }
 

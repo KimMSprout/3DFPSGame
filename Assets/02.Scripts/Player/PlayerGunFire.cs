@@ -215,8 +215,6 @@ public class PlayerGunFire : MonoBehaviour
         GameObject flash = _muzzleFlashes[randomIndex];
         flash.SetActive(true);
 
-        Debug.Log(randomIndex);
-
         yield return new WaitForSeconds(_flashTime);
 
         flash.SetActive(false);
