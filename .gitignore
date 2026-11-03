@@ -77,3 +77,6 @@ crashlytics-build.properties
 # Rider (JetBrains IDE) 설정 폴더
 .idea/
 .idea/*
+# GitHub 100MB 제한을 넘는 미사용 스카이박스 큐브맵 (씬은 6면 PNG 머티리얼을 사용)
+/Assets/Real Stars Skybox/**/*.cubemap
+/Assets/Real Stars Skybox/**/*.cubemap.meta
