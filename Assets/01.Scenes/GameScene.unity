@@ -10425,6 +10425,7 @@ GameObject:
   - component: {fileID: 550210723}
   - component: {fileID: 550210725}
   - component: {fileID: 550210724}
+  - component: {fileID: 550210726}
   m_Layer: 5
   m_Name: UI_OptionPopup
   m_TagString: Untagged
@@ -10490,6 +10491,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550210722}
   m_CullTransparentMesh: 1
+--- !u!95 &550210726
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550210722}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 922c7a7084503ff419970f195afe38d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &551953661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13516,6 +13539,7 @@ GameObject:
   - component: {fileID: 696427978}
   - component: {fileID: 696427977}
   - component: {fileID: 696427976}
+  - component: {fileID: 696427979}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -13609,6 +13633,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696427974}
   m_CullTransparentMesh: 1
+--- !u!225 &696427979
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696427974}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &696846066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44261,6 +44297,7 @@ GameObject:
   - component: {fileID: 2083248915}
   - component: {fileID: 2083248914}
   - component: {fileID: 2083248913}
+  - component: {fileID: 2083248916}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -44355,6 +44392,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083248911}
   m_CullTransparentMesh: 1
+--- !u!225 &2083248916
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083248911}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &2084627844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44761,6 +44810,7 @@ GameObject:
   - component: {fileID: 2108432316}
   - component: {fileID: 2108432318}
   - component: {fileID: 2108432317}
+  - component: {fileID: 2108432319}
   m_Layer: 5
   m_Name: UI_GameoverPopup
   m_TagString: Untagged
@@ -44826,6 +44876,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108432315}
   m_CullTransparentMesh: 1
+--- !u!95 &2108432319
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108432315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 829bfa1d417bf3247805d2dc096d6b9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2109609440
 PrefabInstance:
   m_ObjectHideFlags: 0
