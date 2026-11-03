@@ -1,0 +1,552 @@
+﻿[
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "VisibleMeshRenderers",
+        "Baseline":  86,
+        "OffAvg":  86,
+        "OnAvg":  45.27,
+        "ChangePct":  -47.4,
+        "OffSpreadPct":  0,
+        "OnSpreadPct":  0.3
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "DrawCalls",
+        "Baseline":  810.16,
+        "OffAvg":  841.55,
+        "OnAvg":  732.31,
+        "ChangePct":  -13,
+        "OffSpreadPct":  7.8,
+        "OnSpreadPct":  9.5
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "Batches",
+        "Baseline":  637.06,
+        "OffAvg":  659.77,
+        "OnAvg":  594.65,
+        "ChangePct":  -9.9,
+        "OffSpreadPct":  9.7,
+        "OnSpreadPct":  11.5
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "SetPassCalls",
+        "Baseline":  82.44,
+        "OffAvg":  86.14,
+        "OnAvg":  91.74,
+        "ChangePct":  6.5,
+        "OffSpreadPct":  1.6,
+        "OnSpreadPct":  1.2
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "Triangles",
+        "Baseline":  423777.75,
+        "OffAvg":  429324.67,
+        "OnAvg":  359917.64,
+        "ChangePct":  -16.2,
+        "OffSpreadPct":  5.2,
+        "OnSpreadPct":  5.1
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "Vertices",
+        "Baseline":  657920.16,
+        "OffAvg":  665607.93,
+        "OnAvg":  620755.63,
+        "ChangePct":  -6.7,
+        "OffSpreadPct":  2.7,
+        "OnSpreadPct":  3
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "ShadowCasters",
+        "Baseline":  522.11,
+        "OffAvg":  538.87,
+        "OnAvg":  406.62,
+        "ChangePct":  -24.5,
+        "OffSpreadPct":  7.1,
+        "OnSpreadPct":  8.4
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "CpuMainThreadMs",
+        "Baseline":  9,
+        "OffAvg":  10.9,
+        "OnAvg":  13.26,
+        "ChangePct":  21.6,
+        "OffSpreadPct":  8.5,
+        "OnSpreadPct":  10.1
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "CpuRenderThreadMs",
+        "Baseline":  3.7,
+        "OffAvg":  3.34,
+        "OnAvg":  3.25,
+        "ChangePct":  -2.8,
+        "OffSpreadPct":  2.2,
+        "OnSpreadPct":  1.8
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "GpuMs",
+        "Baseline":  3.54,
+        "OffAvg":  3.35,
+        "OnAvg":  4.67,
+        "ChangePct":  39.4,
+        "OffSpreadPct":  7.2,
+        "OnSpreadPct":  20.3
+    },
+    {
+        "Viewpoint":  "01_PlayerStart_Spawns",
+        "Metric":  "FrameMs",
+        "Baseline":  11.58,
+        "OffAvg":  14.09,
+        "OnAvg":  15.57,
+        "ChangePct":  10.5,
+        "OffSpreadPct":  0.5,
+        "OnSpreadPct":  8.9
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "VisibleMeshRenderers",
+        "Baseline":  169,
+        "OffAvg":  169,
+        "OnAvg":  123.92,
+        "ChangePct":  -26.7,
+        "OffSpreadPct":  0,
+        "OnSpreadPct":  2.3
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "DrawCalls",
+        "Baseline":  969.41,
+        "OffAvg":  889.33,
+        "OnAvg":  814.37,
+        "ChangePct":  -8.4,
+        "OffSpreadPct":  1.3,
+        "OnSpreadPct":  4.3
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "Batches",
+        "Baseline":  724.86,
+        "OffAvg":  627.38,
+        "OnAvg":  602.48,
+        "ChangePct":  -4,
+        "OffSpreadPct":  2,
+        "OnSpreadPct":  5.2
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "SetPassCalls",
+        "Baseline":  94.79,
+        "OffAvg":  95.74,
+        "OnAvg":  97.41,
+        "ChangePct":  1.7,
+        "OffSpreadPct":  4.3,
+        "OnSpreadPct":  8.1
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "Triangles",
+        "Baseline":  460541.52,
+        "OffAvg":  428731.82,
+        "OnAvg":  384573.03,
+        "ChangePct":  -10.3,
+        "OffSpreadPct":  0.4,
+        "OnSpreadPct":  2.7
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "Vertices",
+        "Baseline":  732978.62,
+        "OffAvg":  718768.74,
+        "OnAvg":  688316.42,
+        "ChangePct":  -4.2,
+        "OffSpreadPct":  0.3,
+        "OnSpreadPct":  1.9
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "ShadowCasters",
+        "Baseline":  577.48,
+        "OffAvg":  565.19,
+        "OnAvg":  511.71,
+        "ChangePct":  -9.5,
+        "OffSpreadPct":  1.3,
+        "OnSpreadPct":  2.2
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "CpuMainThreadMs",
+        "Baseline":  9,
+        "OffAvg":  10.95,
+        "OnAvg":  13.29,
+        "ChangePct":  21.4,
+        "OffSpreadPct":  10.2,
+        "OnSpreadPct":  20.1
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "CpuRenderThreadMs",
+        "Baseline":  3.34,
+        "OffAvg":  3.3,
+        "OnAvg":  3.36,
+        "ChangePct":  1.8,
+        "OffSpreadPct":  0.5,
+        "OnSpreadPct":  0.7
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "GpuMs",
+        "Baseline":  3.94,
+        "OffAvg":  3.78,
+        "OnAvg":  3.73,
+        "ChangePct":  -1.5,
+        "OffSpreadPct":  4.4,
+        "OnSpreadPct":  6.2
+    },
+    {
+        "Viewpoint":  "02_BehindHangar",
+        "Metric":  "FrameMs",
+        "Baseline":  11.5,
+        "OffAvg":  13.3,
+        "OnAvg":  16.79,
+        "ChangePct":  26.2,
+        "OffSpreadPct":  8.6,
+        "OnSpreadPct":  22.5
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "VisibleMeshRenderers",
+        "Baseline":  151,
+        "OffAvg":  151,
+        "OnAvg":  110.92,
+        "ChangePct":  -26.5,
+        "OffSpreadPct":  0,
+        "OnSpreadPct":  0.6
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "DrawCalls",
+        "Baseline":  519.46,
+        "OffAvg":  543.34,
+        "OnAvg":  457.94,
+        "ChangePct":  -15.7,
+        "OffSpreadPct":  3.2,
+        "OnSpreadPct":  0.7
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "Batches",
+        "Baseline":  277.2,
+        "OffAvg":  285.45,
+        "OnAvg":  257.85,
+        "ChangePct":  -9.7,
+        "OffSpreadPct":  5.4,
+        "OnSpreadPct":  1
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "SetPassCalls",
+        "Baseline":  77.68,
+        "OffAvg":  79.23,
+        "OnAvg":  74.61,
+        "ChangePct":  -5.8,
+        "OffSpreadPct":  3.3,
+        "OnSpreadPct":  0.8
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "Triangles",
+        "Baseline":  319384.56,
+        "OffAvg":  322437.99,
+        "OnAvg":  294302.67,
+        "ChangePct":  -8.7,
+        "OffSpreadPct":  2.2,
+        "OnSpreadPct":  0.2
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "Vertices",
+        "Baseline":  626851.57,
+        "OffAvg":  626856.63,
+        "OnAvg":  592643.5,
+        "ChangePct":  -5.5,
+        "OffSpreadPct":  1.3,
+        "OnSpreadPct":  0.1
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "ShadowCasters",
+        "Baseline":  327.57,
+        "OffAvg":  331.56,
+        "OnAvg":  238.59,
+        "ChangePct":  -28,
+        "OffSpreadPct":  2.4,
+        "OnSpreadPct":  1.7
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "CpuMainThreadMs",
+        "Baseline":  8.89,
+        "OffAvg":  17.37,
+        "OnAvg":  11.86,
+        "ChangePct":  -31.7,
+        "OffSpreadPct":  43.9,
+        "OnSpreadPct":  2.1
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "CpuRenderThreadMs",
+        "Baseline":  3.51,
+        "OffAvg":  3.13,
+        "OnAvg":  3.2,
+        "ChangePct":  2.2,
+        "OffSpreadPct":  0.6,
+        "OnSpreadPct":  1.2
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "GpuMs",
+        "Baseline":  3.24,
+        "OffAvg":  4.01,
+        "OnAvg":  3.28,
+        "ChangePct":  -18.2,
+        "OffSpreadPct":  17.7,
+        "OnSpreadPct":  3.1
+    },
+    {
+        "Viewpoint":  "03_EastIndustrial",
+        "Metric":  "FrameMs",
+        "Baseline":  10.94,
+        "OffAvg":  17.83,
+        "OnAvg":  14.62,
+        "ChangePct":  -18,
+        "OffSpreadPct":  34.5,
+        "OnSpreadPct":  7.8
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "VisibleMeshRenderers",
+        "Baseline":  406,
+        "OffAvg":  406,
+        "OnAvg":  338.21,
+        "ChangePct":  -16.7,
+        "OffSpreadPct":  0,
+        "OnSpreadPct":  0.1
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "DrawCalls",
+        "Baseline":  1464.57,
+        "OffAvg":  1446.69,
+        "OnAvg":  1335.33,
+        "ChangePct":  -7.7,
+        "OffSpreadPct":  0.1,
+        "OnSpreadPct":  0.7
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "Batches",
+        "Baseline":  945.18,
+        "OffAvg":  889.15,
+        "OnAvg":  895.74,
+        "ChangePct":  0.7,
+        "OffSpreadPct":  0.2,
+        "OnSpreadPct":  1.2
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "SetPassCalls",
+        "Baseline":  97.49,
+        "OffAvg":  91.21,
+        "OnAvg":  94.88,
+        "ChangePct":  4,
+        "OffSpreadPct":  2.6,
+        "OnSpreadPct":  1.2
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "Triangles",
+        "Baseline":  568316.15,
+        "OffAvg":  535269,
+        "OnAvg":  436033.88,
+        "ChangePct":  -18.5,
+        "OffSpreadPct":  0.2,
+        "OnSpreadPct":  0.3
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "Vertices",
+        "Baseline":  908773.72,
+        "OffAvg":  894604.77,
+        "OnAvg":  829587.74,
+        "ChangePct":  -7.3,
+        "OffSpreadPct":  0.1,
+        "OnSpreadPct":  0
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "ShadowCasters",
+        "Baseline":  146.46,
+        "OffAvg":  132.72,
+        "OnAvg":  68.39,
+        "ChangePct":  -48.5,
+        "OffSpreadPct":  1.2,
+        "OnSpreadPct":  10.1
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "CpuMainThreadMs",
+        "Baseline":  10.67,
+        "OffAvg":  14.87,
+        "OnAvg":  17.57,
+        "ChangePct":  18.2,
+        "OffSpreadPct":  12.2,
+        "OnSpreadPct":  11.3
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "CpuRenderThreadMs",
+        "Baseline":  4.12,
+        "OffAvg":  3.74,
+        "OnAvg":  3.61,
+        "ChangePct":  -3.5,
+        "OffSpreadPct":  4.7,
+        "OnSpreadPct":  3.9
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "GpuMs",
+        "Baseline":  3.72,
+        "OffAvg":  3.75,
+        "OnAvg":  3.53,
+        "ChangePct":  -6,
+        "OffSpreadPct":  12.6,
+        "OnSpreadPct":  0.4
+    },
+    {
+        "Viewpoint":  "04_Overview_High",
+        "Metric":  "FrameMs",
+        "Baseline":  13.36,
+        "OffAvg":  17.39,
+        "OnAvg":  20.02,
+        "ChangePct":  15.1,
+        "OffSpreadPct":  11.2,
+        "OnSpreadPct":  10.3
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "VisibleMeshRenderers",
+        "Baseline":  361,
+        "OffAvg":  361,
+        "OnAvg":  281.18,
+        "ChangePct":  -22.1,
+        "OffSpreadPct":  0,
+        "OnSpreadPct":  0.1
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "DrawCalls",
+        "Baseline":  1625.94,
+        "OffAvg":  1550.58,
+        "OnAvg":  894.27,
+        "ChangePct":  -42.3,
+        "OffSpreadPct":  4.7,
+        "OnSpreadPct":  10.9
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "Batches",
+        "Baseline":  996.99,
+        "OffAvg":  876.43,
+        "OnAvg":  583.56,
+        "ChangePct":  -33.4,
+        "OffSpreadPct":  8.8,
+        "OnSpreadPct":  17
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "SetPassCalls",
+        "Baseline":  107.84,
+        "OffAvg":  102.01,
+        "OnAvg":  92.5,
+        "ChangePct":  -9.3,
+        "OffSpreadPct":  2,
+        "OnSpreadPct":  5.5
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "Triangles",
+        "Baseline":  625065.8,
+        "OffAvg":  578854.69,
+        "OnAvg":  415577.03,
+        "ChangePct":  -28.2,
+        "OffSpreadPct":  3.9,
+        "OnSpreadPct":  5.4
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "Vertices",
+        "Baseline":  981930.7,
+        "OffAvg":  950617.01,
+        "OnAvg":  765237.94,
+        "ChangePct":  -19.5,
+        "OffSpreadPct":  2,
+        "OnSpreadPct":  2.5
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "ShadowCasters",
+        "Baseline":  774.04,
+        "OffAvg":  718.3,
+        "OnAvg":  568.95,
+        "ChangePct":  -20.8,
+        "OffSpreadPct":  6.2,
+        "OnSpreadPct":  5.8
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "CpuMainThreadMs",
+        "Baseline":  10.48,
+        "OffAvg":  13.29,
+        "OnAvg":  14.61,
+        "ChangePct":  10,
+        "OffSpreadPct":  0.9,
+        "OnSpreadPct":  7.8
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "CpuRenderThreadMs",
+        "Baseline":  4.18,
+        "OffAvg":  3.66,
+        "OnAvg":  3.54,
+        "ChangePct":  -3.2,
+        "OffSpreadPct":  1.3,
+        "OnSpreadPct":  1.7
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "GpuMs",
+        "Baseline":  3.48,
+        "OffAvg":  3.84,
+        "OnAvg":  3.66,
+        "ChangePct":  -4.5,
+        "OffSpreadPct":  1.9,
+        "OnSpreadPct":  3.5
+    },
+    {
+        "Viewpoint":  "05_NorthSpawn",
+        "Metric":  "FrameMs",
+        "Baseline":  13.46,
+        "OffAvg":  15.7,
+        "OnAvg":  16.03,
+        "ChangePct":  2.1,
+        "OffSpreadPct":  1.1,
+        "OnSpreadPct":  1.2
+    }
+]

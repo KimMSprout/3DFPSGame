@@ -1,0 +1,344 @@
+{
+    "Label": "lp_v2",
+    "TimestampUtc": "2026-11-02T07:05:16.7686177Z",
+    "UnityVersion": "6000.3.22f1",
+    "ScreenWidth": 1920,
+    "ScreenHeight": 1080,
+    "VSyncCount": 0,
+    "TargetFrameRate": -1,
+    "ZombieCount": 12,
+    "MeshRendererCount": 421,
+    "OptimizationsDisabled": false,
+    "Viewpoints": [
+        {
+            "Name": "01_PlayerStart_Spawns",
+            "SampledFrames": 782,
+            "RenderedFrames": 778,
+            "DrawCalls": {
+                "Avg": 777.857,
+                "Min": 640.0,
+                "Max": 1654.0
+            },
+            "Batches": {
+                "Avg": 610.933,
+                "Min": 562.0,
+                "Max": 1322.0
+            },
+            "SetPassCalls": {
+                "Avg": 87.324,
+                "Min": 79.0,
+                "Max": 178.0
+            },
+            "Triangles": {
+                "Avg": 213463.855,
+                "Min": 178056.0,
+                "Max": 450592.0
+            },
+            "Vertices": {
+                "Avg": 232060.806,
+                "Min": 195165.0,
+                "Max": 488029.0
+            },
+            "ShadowCasters": {
+                "Avg": 538.117,
+                "Min": 401.0,
+                "Max": 1155.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 107.433,
+                "Min": 98.0,
+                "Max": 224.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 67.163,
+                "Min": 67.0,
+                "Max": 68.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 3.064,
+                "Min": 2.688,
+                "Max": 7.27
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 1.643,
+                "Min": 1.097,
+                "Max": 4.877
+            },
+            "GpuMs": {
+                "Avg": 1.711,
+                "Min": 0.0,
+                "Max": 2.281
+            },
+            "FrameMs": {
+                "Avg": 5.121,
+                "Min": 4.515,
+                "Max": 8.274
+            },
+            "Screenshot": "Screenshots/lp_v2_01_PlayerStart_Spawns.png"
+        },
+        {
+            "Name": "02_BehindHangar",
+            "SampledFrames": 724,
+            "RenderedFrames": 724,
+            "DrawCalls": {
+                "Avg": 754.591,
+                "Min": 651.0,
+                "Max": 786.0
+            },
+            "Batches": {
+                "Avg": 484.048,
+                "Min": 444.0,
+                "Max": 513.0
+            },
+            "SetPassCalls": {
+                "Avg": 82.156,
+                "Min": 76.0,
+                "Max": 83.0
+            },
+            "Triangles": {
+                "Avg": 181002.16,
+                "Min": 150959.0,
+                "Max": 187969.0
+            },
+            "Vertices": {
+                "Avg": 239099.109,
+                "Min": 196257.0,
+                "Max": 247206.0
+            },
+            "ShadowCasters": {
+                "Avg": 586.457,
+                "Min": 415.0,
+                "Max": 606.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 106.634,
+                "Min": 92.0,
+                "Max": 121.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 149.38,
+                "Min": 149.0,
+                "Max": 150.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 3.272,
+                "Min": 2.392,
+                "Max": 4.763
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 1.779,
+                "Min": 1.338,
+                "Max": 3.015
+            },
+            "GpuMs": {
+                "Avg": 1.852,
+                "Min": 1.658,
+                "Max": 2.433
+            },
+            "FrameMs": {
+                "Avg": 5.529,
+                "Min": 4.203,
+                "Max": 7.414
+            },
+            "Screenshot": "Screenshots/lp_v2_02_BehindHangar.png"
+        },
+        {
+            "Name": "03_EastIndustrial",
+            "SampledFrames": 895,
+            "RenderedFrames": 893,
+            "DrawCalls": {
+                "Avg": 448.056,
+                "Min": 383.0,
+                "Max": 835.0
+            },
+            "Batches": {
+                "Avg": 247.665,
+                "Min": 215.0,
+                "Max": 452.0
+            },
+            "SetPassCalls": {
+                "Avg": 68.335,
+                "Min": 64.0,
+                "Max": 130.0
+            },
+            "Triangles": {
+                "Avg": 93151.261,
+                "Min": 77923.0,
+                "Max": 173284.0
+            },
+            "Vertices": {
+                "Avg": 148580.815,
+                "Min": 125695.0,
+                "Max": 283200.0
+            },
+            "ShadowCasters": {
+                "Avg": 272.32,
+                "Min": 225.0,
+                "Max": 530.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 8.172,
+                "Min": 0.0,
+                "Max": 14.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 116.087,
+                "Min": 116.0,
+                "Max": 117.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 2.939,
+                "Min": 2.501,
+                "Max": 4.35
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 1.732,
+                "Min": 1.165,
+                "Max": 3.666
+            },
+            "GpuMs": {
+                "Avg": 1.612,
+                "Min": 0.0,
+                "Max": 2.129
+            },
+            "FrameMs": {
+                "Avg": 4.471,
+                "Min": 3.587,
+                "Max": 6.961
+            },
+            "Screenshot": "Screenshots/lp_v2_03_EastIndustrial.png"
+        },
+        {
+            "Name": "04_Overview_High",
+            "SampledFrames": 688,
+            "RenderedFrames": 687,
+            "DrawCalls": {
+                "Avg": 1206.131,
+                "Min": 1014.0,
+                "Max": 2398.0
+            },
+            "Batches": {
+                "Avg": 825.194,
+                "Min": 774.0,
+                "Max": 1656.0
+            },
+            "SetPassCalls": {
+                "Avg": 81.54,
+                "Min": 78.0,
+                "Max": 160.0
+            },
+            "Triangles": {
+                "Avg": 208195.726,
+                "Min": 194076.0,
+                "Max": 414469.0
+            },
+            "Vertices": {
+                "Avg": 327971.252,
+                "Min": 298782.0,
+                "Max": 654834.0
+            },
+            "ShadowCasters": {
+                "Avg": 69.83,
+                "Min": 49.0,
+                "Max": 136.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 238.346,
+                "Min": 238.0,
+                "Max": 476.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 338.0,
+                "Min": 338.0,
+                "Max": 338.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 3.486,
+                "Min": 3.003,
+                "Max": 8.245
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 2.022,
+                "Min": 1.426,
+                "Max": 5.722
+            },
+            "GpuMs": {
+                "Avg": 1.839,
+                "Min": 0.0,
+                "Max": 2.647
+            },
+            "FrameMs": {
+                "Avg": 5.82,
+                "Min": 4.756,
+                "Max": 11.568
+            },
+            "Screenshot": "Screenshots/lp_v2_04_Overview_High.png"
+        },
+        {
+            "Name": "05_NorthSpawn",
+            "SampledFrames": 638,
+            "RenderedFrames": 638,
+            "DrawCalls": {
+                "Avg": 896.165,
+                "Min": 827.0,
+                "Max": 947.0
+            },
+            "Batches": {
+                "Avg": 589.02,
+                "Min": 549.0,
+                "Max": 639.0
+            },
+            "SetPassCalls": {
+                "Avg": 91.592,
+                "Min": 89.0,
+                "Max": 93.0
+            },
+            "Triangles": {
+                "Avg": 230386.582,
+                "Min": 210578.0,
+                "Max": 240954.0
+            },
+            "Vertices": {
+                "Avg": 315365.121,
+                "Min": 273716.0,
+                "Max": 326873.0
+            },
+            "ShadowCasters": {
+                "Avg": 666.768,
+                "Min": 475.0,
+                "Max": 690.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 129.091,
+                "Min": 126.0,
+                "Max": 140.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 281.049,
+                "Min": 281.0,
+                "Max": 282.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 3.85,
+                "Min": 3.021,
+                "Max": 20.097
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 1.997,
+                "Min": 1.398,
+                "Max": 3.398
+            },
+            "GpuMs": {
+                "Avg": 2.133,
+                "Min": 1.898,
+                "Max": 3.296
+            },
+            "FrameMs": {
+                "Avg": 6.27,
+                "Min": 4.561,
+                "Max": 22.75
+            },
+            "Screenshot": "Screenshots/lp_v2_05_NorthSpawn.png"
+        }
+    ]
+}

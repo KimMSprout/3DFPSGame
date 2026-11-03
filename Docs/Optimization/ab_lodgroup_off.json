@@ -1,0 +1,343 @@
+{
+    "Label": "ab_lodgroup_off",
+    "TimestampUtc": "2026-10-30T07:24:45.8890152Z",
+    "UnityVersion": "6000.3.22f1",
+    "ScreenWidth": 1920,
+    "ScreenHeight": 1080,
+    "VSyncCount": 0,
+    "TargetFrameRate": -1,
+    "ZombieCount": 12,
+    "MeshRendererCount": 421,
+    "Viewpoints": [
+        {
+            "Name": "01_PlayerStart_Spawns",
+            "SampledFrames": 259,
+            "RenderedFrames": 252,
+            "DrawCalls": {
+                "Avg": 704.214,
+                "Min": 496.0,
+                "Max": 1433.0
+            },
+            "Batches": {
+                "Avg": 562.508,
+                "Min": 493.0,
+                "Max": 1147.0
+            },
+            "SetPassCalls": {
+                "Avg": 88.599,
+                "Min": 79.0,
+                "Max": 174.0
+            },
+            "Triangles": {
+                "Avg": 387450.266,
+                "Min": 350303.0,
+                "Max": 774248.0
+            },
+            "Vertices": {
+                "Avg": 621450.397,
+                "Min": 577506.0,
+                "Max": 1222632.0
+            },
+            "ShadowCasters": {
+                "Avg": 403.377,
+                "Min": 361.0,
+                "Max": 808.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 101.373,
+                "Min": 84.0,
+                "Max": 196.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 50.012,
+                "Min": 45.0,
+                "Max": 52.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 11.926,
+                "Min": 9.784,
+                "Max": 20.588
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 5.256,
+                "Min": 0.736,
+                "Max": 16.218
+            },
+            "GpuMs": {
+                "Avg": 4.096,
+                "Min": 0.0,
+                "Max": 8.704
+            },
+            "FrameMs": {
+                "Avg": 15.477,
+                "Min": 12.829,
+                "Max": 22.481
+            },
+            "Screenshot": "Screenshots/ab_lodgroup_off_01_PlayerStart_Spawns.png"
+        },
+        {
+            "Name": "02_BehindHangar",
+            "SampledFrames": 255,
+            "RenderedFrames": 255,
+            "DrawCalls": {
+                "Avg": 667.776,
+                "Min": 567.0,
+                "Max": 738.0
+            },
+            "Batches": {
+                "Avg": 469.392,
+                "Min": 437.0,
+                "Max": 538.0
+            },
+            "SetPassCalls": {
+                "Avg": 83.267,
+                "Min": 78.0,
+                "Max": 91.0
+            },
+            "Triangles": {
+                "Avg": 363011.937,
+                "Min": 347245.0,
+                "Max": 387613.0
+            },
+            "Vertices": {
+                "Avg": 645893.004,
+                "Min": 611725.0,
+                "Max": 664482.0
+            },
+            "ShadowCasters": {
+                "Avg": 426.043,
+                "Min": 345.0,
+                "Max": 461.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 80.902,
+                "Min": 72.0,
+                "Max": 101.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 123.749,
+                "Min": 121.0,
+                "Max": 128.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 12.09,
+                "Min": 9.942,
+                "Max": 14.158
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 5.101,
+                "Min": 3.921,
+                "Max": 15.117
+            },
+            "GpuMs": {
+                "Avg": 4.0,
+                "Min": 3.06,
+                "Max": 8.785
+            },
+            "FrameMs": {
+                "Avg": 15.689,
+                "Min": 13.173,
+                "Max": 18.312
+            },
+            "Screenshot": "Screenshots/ab_lodgroup_off_02_BehindHangar.png"
+        },
+        {
+            "Name": "03_EastIndustrial",
+            "SampledFrames": 265,
+            "RenderedFrames": 265,
+            "DrawCalls": {
+                "Avg": 451.634,
+                "Min": 382.0,
+                "Max": 493.0
+            },
+            "Batches": {
+                "Avg": 264.951,
+                "Min": 234.0,
+                "Max": 297.0
+            },
+            "SetPassCalls": {
+                "Avg": 74.611,
+                "Min": 69.0,
+                "Max": 79.0
+            },
+            "Triangles": {
+                "Avg": 294803.151,
+                "Min": 271168.0,
+                "Max": 307172.0
+            },
+            "Vertices": {
+                "Avg": 586022.728,
+                "Min": 552722.0,
+                "Max": 597442.0
+            },
+            "ShadowCasters": {
+                "Avg": 251.177,
+                "Min": 183.0,
+                "Max": 277.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 7.46,
+                "Min": 0.0,
+                "Max": 14.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 117.464,
+                "Min": 117.0,
+                "Max": 121.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 11.759,
+                "Min": 10.642,
+                "Max": 13.705
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 4.824,
+                "Min": 3.472,
+                "Max": 9.893
+            },
+            "GpuMs": {
+                "Avg": 3.676,
+                "Min": 3.03,
+                "Max": 8.595
+            },
+            "FrameMs": {
+                "Avg": 15.096,
+                "Min": 12.886,
+                "Max": 19.094
+            },
+            "Screenshot": "Screenshots/ab_lodgroup_off_03_EastIndustrial.png"
+        },
+        {
+            "Name": "04_Overview_High",
+            "SampledFrames": 264,
+            "RenderedFrames": 264,
+            "DrawCalls": {
+                "Avg": 1399.038,
+                "Min": 1342.0,
+                "Max": 1457.0
+            },
+            "Batches": {
+                "Avg": 916.163,
+                "Min": 879.0,
+                "Max": 967.0
+            },
+            "SetPassCalls": {
+                "Avg": 92.129,
+                "Min": 87.0,
+                "Max": 99.0
+            },
+            "Triangles": {
+                "Avg": 543559.235,
+                "Min": 521721.0,
+                "Max": 563201.0
+            },
+            "Vertices": {
+                "Avg": 874489.977,
+                "Min": 850941.0,
+                "Max": 891207.0
+            },
+            "ShadowCasters": {
+                "Avg": 60.561,
+                "Min": 40.0,
+                "Max": 81.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 238.0,
+                "Min": 238.0,
+                "Max": 238.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 420.0,
+                "Min": 420.0,
+                "Max": 420.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 11.958,
+                "Min": 10.62,
+                "Max": 14.289
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 4.61,
+                "Min": 1.562,
+                "Max": 11.478
+            },
+            "GpuMs": {
+                "Avg": 3.765,
+                "Min": 0.188,
+                "Max": 8.281
+            },
+            "FrameMs": {
+                "Avg": 15.192,
+                "Min": 12.956,
+                "Max": 31.936
+            },
+            "Screenshot": "Screenshots/ab_lodgroup_off_04_Overview_High.png"
+        },
+        {
+            "Name": "05_NorthSpawn",
+            "SampledFrames": 269,
+            "RenderedFrames": 267,
+            "DrawCalls": {
+                "Avg": 859.933,
+                "Min": 749.0,
+                "Max": 1740.0
+            },
+            "Batches": {
+                "Avg": 564.33,
+                "Min": 485.0,
+                "Max": 1150.0
+            },
+            "SetPassCalls": {
+                "Avg": 97.06,
+                "Min": 87.0,
+                "Max": 198.0
+            },
+            "Triangles": {
+                "Avg": 435700.805,
+                "Min": 395435.0,
+                "Max": 875336.0
+            },
+            "Vertices": {
+                "Avg": 758096.026,
+                "Min": 710317.0,
+                "Max": 1514540.0
+            },
+            "ShadowCasters": {
+                "Avg": 573.416,
+                "Min": 508.0,
+                "Max": 1164.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 125.375,
+                "Min": 112.0,
+                "Max": 252.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 308.697,
+                "Min": 308.0,
+                "Max": 312.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 11.958,
+                "Min": 9.638,
+                "Max": 33.871
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 4.273,
+                "Min": 3.133,
+                "Max": 18.295
+            },
+            "GpuMs": {
+                "Avg": 4.366,
+                "Min": 0.0,
+                "Max": 8.722
+            },
+            "FrameMs": {
+                "Avg": 14.914,
+                "Min": 12.27,
+                "Max": 36.88
+            },
+            "Screenshot": "Screenshots/ab_lodgroup_off_05_NorthSpawn.png"
+        }
+    ]
+}

@@ -1,0 +1,343 @@
+{
+    "Label": "step1_occlusion",
+    "TimestampUtc": "2026-10-30T07:20:17.3055568Z",
+    "UnityVersion": "6000.3.22f1",
+    "ScreenWidth": 1920,
+    "ScreenHeight": 1080,
+    "VSyncCount": 0,
+    "TargetFrameRate": -1,
+    "ZombieCount": 12,
+    "MeshRendererCount": 407,
+    "Viewpoints": [
+        {
+            "Name": "01_PlayerStart_Spawns",
+            "SampledFrames": 348,
+            "RenderedFrames": 341,
+            "DrawCalls": {
+                "Avg": 651.372,
+                "Min": 482.0,
+                "Max": 1472.0
+            },
+            "Batches": {
+                "Avg": 513.496,
+                "Min": 410.0,
+                "Max": 1198.0
+            },
+            "SetPassCalls": {
+                "Avg": 82.302,
+                "Min": 76.0,
+                "Max": 172.0
+            },
+            "Triangles": {
+                "Avg": 368449.853,
+                "Min": 328278.0,
+                "Max": 787360.0
+            },
+            "Vertices": {
+                "Avg": 605050.466,
+                "Min": 564159.0,
+                "Max": 1233588.0
+            },
+            "ShadowCasters": {
+                "Avg": 381.827,
+                "Min": 255.0,
+                "Max": 788.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 89.293,
+                "Min": 84.0,
+                "Max": 196.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 45.0,
+                "Min": 45.0,
+                "Max": 45.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 9.031,
+                "Min": 7.957,
+                "Max": 29.103
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 3.544,
+                "Min": 0.908,
+                "Max": 11.699
+            },
+            "GpuMs": {
+                "Avg": 3.45,
+                "Min": 0.0,
+                "Max": 6.746
+            },
+            "FrameMs": {
+                "Avg": 11.517,
+                "Min": 9.375,
+                "Max": 30.243
+            },
+            "Screenshot": "Screenshots/step1_occlusion_01_PlayerStart_Spawns.png"
+        },
+        {
+            "Name": "02_BehindHangar",
+            "SampledFrames": 341,
+            "RenderedFrames": 340,
+            "DrawCalls": {
+                "Avg": 838.721,
+                "Min": 678.0,
+                "Max": 1649.0
+            },
+            "Batches": {
+                "Avg": 643.659,
+                "Min": 580.0,
+                "Max": 1254.0
+            },
+            "SetPassCalls": {
+                "Avg": 97.094,
+                "Min": 94.0,
+                "Max": 194.0
+            },
+            "Triangles": {
+                "Avg": 423594.191,
+                "Min": 392379.0,
+                "Max": 838317.0
+            },
+            "Vertices": {
+                "Avg": 690759.547,
+                "Min": 669112.0,
+                "Max": 1373701.0
+            },
+            "ShadowCasters": {
+                "Avg": 504.032,
+                "Min": 481.0,
+                "Max": 986.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 133.703,
+                "Min": 120.0,
+                "Max": 264.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 121.0,
+                "Min": 121.0,
+                "Max": 121.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 9.241,
+                "Min": 7.63,
+                "Max": 15.139
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 3.475,
+                "Min": 2.371,
+                "Max": 12.01
+            },
+            "GpuMs": {
+                "Avg": 3.814,
+                "Min": 0.0,
+                "Max": 6.78
+            },
+            "FrameMs": {
+                "Avg": 11.749,
+                "Min": 9.331,
+                "Max": 16.143
+            },
+            "Screenshot": "Screenshots/step1_occlusion_02_BehindHangar.png"
+        },
+        {
+            "Name": "03_EastIndustrial",
+            "SampledFrames": 384,
+            "RenderedFrames": 378,
+            "DrawCalls": {
+                "Avg": 434.884,
+                "Min": 337.0,
+                "Max": 858.0
+            },
+            "Batches": {
+                "Avg": 241.085,
+                "Min": 236.0,
+                "Max": 474.0
+            },
+            "SetPassCalls": {
+                "Avg": 71.069,
+                "Min": 64.0,
+                "Max": 140.0
+            },
+            "Triangles": {
+                "Avg": 290973.601,
+                "Min": 279629.0,
+                "Max": 573366.0
+            },
+            "Vertices": {
+                "Avg": 590158.587,
+                "Min": 568659.0,
+                "Max": 1162842.0
+            },
+            "ShadowCasters": {
+                "Avg": 226.251,
+                "Min": 177.0,
+                "Max": 446.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 0.0,
+                "Min": 0.0,
+                "Max": 0.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 110.0,
+                "Min": 110.0,
+                "Max": 110.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 8.674,
+                "Min": 7.357,
+                "Max": 18.228
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 3.295,
+                "Min": 2.218,
+                "Max": 10.659
+            },
+            "GpuMs": {
+                "Avg": 3.036,
+                "Min": 0.0,
+                "Max": 10.443
+            },
+            "FrameMs": {
+                "Avg": 10.441,
+                "Min": 8.452,
+                "Max": 19.49
+            },
+            "Screenshot": "Screenshots/step1_occlusion_03_EastIndustrial.png"
+        },
+        {
+            "Name": "04_Overview_High",
+            "SampledFrames": 277,
+            "RenderedFrames": 276,
+            "DrawCalls": {
+                "Avg": 1390.098,
+                "Min": 1301.0,
+                "Max": 2761.0
+            },
+            "Batches": {
+                "Avg": 905.054,
+                "Min": 860.0,
+                "Max": 1812.0
+            },
+            "SetPassCalls": {
+                "Avg": 89.649,
+                "Min": 85.0,
+                "Max": 178.0
+            },
+            "Triangles": {
+                "Avg": 540188.699,
+                "Min": 511802.0,
+                "Max": 1081134.0
+            },
+            "Vertices": {
+                "Avg": 872992.554,
+                "Min": 838361.0,
+                "Max": 1743135.0
+            },
+            "ShadowCasters": {
+                "Avg": 52.986,
+                "Min": 40.0,
+                "Max": 106.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 238.862,
+                "Min": 238.0,
+                "Max": 476.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 406.0,
+                "Min": 406.0,
+                "Max": 406.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 11.516,
+                "Min": 9.268,
+                "Max": 31.826
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 4.459,
+                "Min": 0.818,
+                "Max": 16.156
+            },
+            "GpuMs": {
+                "Avg": 3.731,
+                "Min": 0.0,
+                "Max": 12.748
+            },
+            "FrameMs": {
+                "Avg": 14.481,
+                "Min": 11.263,
+                "Max": 37.783
+            },
+            "Screenshot": "Screenshots/step1_occlusion_04_Overview_High.png"
+        },
+        {
+            "Name": "05_NorthSpawn",
+            "SampledFrames": 290,
+            "RenderedFrames": 288,
+            "DrawCalls": {
+                "Avg": 881.469,
+                "Min": 826.0,
+                "Max": 1755.0
+            },
+            "Batches": {
+                "Avg": 587.295,
+                "Min": 576.0,
+                "Max": 1169.0
+            },
+            "SetPassCalls": {
+                "Avg": 90.462,
+                "Min": 88.0,
+                "Max": 180.0
+            },
+            "Triangles": {
+                "Avg": 439913.333,
+                "Min": 420984.0,
+                "Max": 876028.0
+            },
+            "Vertices": {
+                "Avg": 761649.267,
+                "Min": 728024.0,
+                "Max": 1516164.0
+            },
+            "ShadowCasters": {
+                "Avg": 566.538,
+                "Min": 549.0,
+                "Max": 1126.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 90.469,
+                "Min": 89.0,
+                "Max": 180.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 300.0,
+                "Min": 300.0,
+                "Max": 300.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 10.439,
+                "Min": 9.035,
+                "Max": 16.69
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 3.822,
+                "Min": 0.725,
+                "Max": 12.991
+            },
+            "GpuMs": {
+                "Avg": 3.437,
+                "Min": 0.0,
+                "Max": 10.401
+            },
+            "FrameMs": {
+                "Avg": 13.836,
+                "Min": 11.027,
+                "Max": 46.261
+            },
+            "Screenshot": "Screenshots/step1_occlusion_05_NorthSpawn.png"
+        }
+    ]
+}

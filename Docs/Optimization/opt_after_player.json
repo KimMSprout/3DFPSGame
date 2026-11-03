@@ -1,0 +1,80 @@
+{
+    "Label": "opt_after_player",
+    "TimestampUtc": "2026-11-02T07:12:50.5761774Z",
+    "UnityVersion": "6000.3.22f1",
+    "ScreenWidth": 1920,
+    "ScreenHeight": 1080,
+    "VSyncCount": 0,
+    "TargetFrameRate": -1,
+    "ZombieCount": 12,
+    "MeshRendererCount": 421,
+    "OptimizationsDisabled": false,
+    "Viewpoints": [
+        {
+            "Name": "00_PlayerView",
+            "SampledFrames": 554,
+            "RenderedFrames": 549,
+            "DrawCalls": {
+                "Avg": 445.055,
+                "Min": 316.0,
+                "Max": 998.0
+            },
+            "Batches": {
+                "Avg": 427.104,
+                "Min": 298.0,
+                "Max": 962.0
+            },
+            "SetPassCalls": {
+                "Avg": 73.166,
+                "Min": 67.0,
+                "Max": 158.0
+            },
+            "Triangles": {
+                "Avg": 307615.625,
+                "Min": 254485.0,
+                "Max": 640586.0
+            },
+            "Vertices": {
+                "Avg": 653619.208,
+                "Min": 593205.0,
+                "Max": 1324118.0
+            },
+            "ShadowCasters": {
+                "Avg": 145.863,
+                "Min": 86.0,
+                "Max": 329.0
+            },
+            "VisibleSkinnedMeshes": {
+                "Avg": 105.634,
+                "Min": 71.0,
+                "Max": 232.0
+            },
+            "VisibleMeshRenderers": {
+                "Avg": 35.319,
+                "Min": 35.0,
+                "Max": 41.0
+            },
+            "CpuMainThreadMs": {
+                "Avg": 4.647,
+                "Min": 1.827,
+                "Max": 503.19
+            },
+            "CpuRenderThreadMs": {
+                "Avg": 1.355,
+                "Min": 0.417,
+                "Max": 4.248
+            },
+            "GpuMs": {
+                "Avg": 1.548,
+                "Min": 0.0,
+                "Max": 76.476
+            },
+            "FrameMs": {
+                "Avg": 7.224,
+                "Min": 2.692,
+                "Max": 502.75
+            },
+            "Screenshot": "Screenshots/opt_after_player_00_PlayerView.png"
+        }
+    ]
+}
