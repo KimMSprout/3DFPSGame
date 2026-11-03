@@ -1,7 +1,18 @@
-﻿namespace _02.Scripts.Game
+﻿using UnityEngine;
+
+public class SingletonBehavior<T> : MonoBehaviour where T : class
 {
-    public class SingletonBehavior
+    private static T _instance;
+    public static T Instance;
+
+    private void Awake()
     {
-        
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this as T;
     }
 }

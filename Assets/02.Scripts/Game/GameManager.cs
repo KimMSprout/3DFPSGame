@@ -7,33 +7,46 @@ public enum GameState
 {
     Ready,
     Playing,
-    GameOver
+    Pause,
+    GameOver,
 }
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonBehavior<GameManager>
 {
     [SerializeField] private TextMeshProUGUI _stateText;
-
-    private static GameManager _instance;
-    public static GameManager Instance => _instance;
+    [SerializeField] private GameObject _optionPopup;
 
     private GameState _state = GameState.Ready;
     public GameState State => _state;
 
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = this;
-    }
-
     private void Start()
     {
         StartCoroutine(StartSequence_Coroutine());
+    }
+
+    private void Update()
+    {
+        Debug.Log($"유니티 흐른 시간 : {Time.deltaTime}");
+        Debug.Log($"실제 흐른 시간 : {Time.unscaledDeltaTime}");
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_state == GameState.Playing)
+            {
+                _state = GameState.Pause;
+                Time.timeScale = 0; // 유니티에서 흐르는 게임 시간
+                _optionPopup.SetActive(true);
+                CursorManager.Instance.LockCursor();
+            }
+
+            else if (_state == GameState.Pause)
+            {
+                _state = GameState.Playing;
+                Time.timeScale = 1;
+                _optionPopup.SetActive(false);
+                CursorManager.Instance.UnlockCursor();
+            }
+        }
     }
 
     private IEnumerator StartSequence_Coroutine()
