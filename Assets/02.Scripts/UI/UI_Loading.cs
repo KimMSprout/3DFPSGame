@@ -1,62 +1,64 @@
 using System.Collections;
 using TMPro;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 using UnityEngine.UI;
 
-// 로딩 씬에서 다음 씬을 비동기로 불러오며 진행률을 슬라이더와 텍스트로 보여줘요.
 public class UI_Loading : MonoBehaviour
 {
-    // AsyncOperation.progress는 allowSceneActivation이 false일 때 0.9에서 멈춰요.
+    // allowSceneActivation이 false면 progress는 0.9에서 멈춰요.
     private const float LoadCompleteProgress = 0.9f;
-
-    [SerializeField] private string _nextSceneName = "GameScene";
 
     [Header("UI")]
     [SerializeField] private Slider _progressSlider;
     [SerializeField] private TextMeshProUGUI _progressText;
 
     [Header("연출")]
-    [Tooltip("표시 진행률이 실제 진행률을 따라가는 속도 (초당 비율)")]
+    [Tooltip("표시 진행률이 실제 진행률을 따라가는 속도 (초당 비율, 1이면 0→100%에 1초)")]
     [SerializeField] private float _fillSpeed = 0.8f;
-    [Tooltip("100%를 보여준 뒤 씬을 전환하기까지 기다리는 시간")]
-    [SerializeField] private float _completeDelay = 0.3f;
 
     private void Start()
     {
-        StartCoroutine(LoadScene_Coroutine());
+        StartCoroutine(Load_Coroutine());
     }
 
-    private IEnumerator LoadScene_Coroutine()
+    private IEnumerator Load_Coroutine()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(_nextSceneName);
-        if (operation == null)
-        {
-            Debug.LogError($"씬을 불러올 수 없어요: {_nextSceneName} (Build Profiles에 등록되어 있는지 확인하세요)");
-            yield break;
-        }
+        Application.backgroundLoadingPriority = ThreadPriority.Low;
 
+        // 비동기 씬 로드
+        // 반환: 씬의 비동기 진행사항을 확인할 수 있는 객체
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneLoader.NextSceneName);
+
+        // 씬 로드가 끝나도 바로 넘어가지 않고 활성화를 미뤄둬요.
         operation.allowSceneActivation = false;
 
-        float displayProgress = 0f;
-        Refresh(displayProgress);
+        // 화면에 보여주는 진행률 (실제 진행률을 부드럽게 따라가요)
+        float displayValue = 0f;
+        Refresh(displayValue);
 
-        while (displayProgress < 1f)
+        while (!operation.isDone)
         {
-            // 실제 진행률(0~0.9)을 0~1로 환산해요.
-            float targetProgress = Mathf.Clamp01(operation.progress / LoadCompleteProgress);
-            displayProgress = Mathf.MoveTowards(displayProgress, targetProgress, _fillSpeed * Time.deltaTime);
-            Refresh(displayProgress);
+            // 실제 진행률(0~0.9)을 0~1로 환산
+            float targetValue = Mathf.Clamp01(operation.progress / LoadCompleteProgress);
+            displayValue = Mathf.MoveTowards(displayValue, targetValue, _fillSpeed * Time.deltaTime);
+            Refresh(displayValue);
+
+            // 로드가 끝났고 표시도 100%까지 다 찼을 때 씬 전환
+            if (operation.progress >= LoadCompleteProgress && displayValue >= 1f)
+            {
+                Application.backgroundLoadingPriority = ThreadPriority.Normal;
+                operation.allowSceneActivation = true;
+                yield break;
+            }
+
             yield return null;
         }
-
-        yield return new WaitForSeconds(_completeDelay);
-        operation.allowSceneActivation = true;
     }
 
-    private void Refresh(float progress)
+    private void Refresh(float value)
     {
-        _progressSlider.value = progress;
-        _progressText.text = $"불러오는 중 {Mathf.FloorToInt(progress * 100f)}%";
+        _progressSlider.value = value;
+        _progressText.text = $"불러오는 중 {Mathf.FloorToInt(value * 100f)}%";
     }
 }

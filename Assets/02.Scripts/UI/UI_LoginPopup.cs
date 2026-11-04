@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,7 +68,7 @@ public class UI_LoginPopup : MonoBehaviour
 
         if (_repository.CheckPassword(id, password))
         {
-            SceneManager.LoadScene("LoadingScene");
+            SceneLoader.Load("GameScene");
         }
         else
         {
