@@ -1,10 +1,11 @@
 using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class UI_Login : MonoBehaviour
+public class UI_LoginPopup : MonoBehaviour
 {
     private enum Mode
     {
@@ -29,6 +30,10 @@ public class UI_Login : MonoBehaviour
     private Mode _mode = Mode.Login;
 
     private PlayerPrefsAccountRepository _repository = new PlayerPrefsAccountRepository();
+
+    private AccountIdSpecification _idSpec = new AccountIdSpecification();
+    private AccountPasswordSpecification _passwordSpec = new AccountPasswordSpecification();
+
 
     private void Start()
     {
@@ -69,8 +74,6 @@ public class UI_Login : MonoBehaviour
             _messageText.text = "아이디와 비밀번호를 확인해주세요.";
             return;
         }
-
-        SceneManager.LoadScene("GameScene");
     }
 
     public void Register()
@@ -79,11 +82,21 @@ public class UI_Login : MonoBehaviour
         string password = _passwordInput.text;
         string passwordConfirm = _passwordConfirmInput.text;
 
-        // TODO: ID와 비밀번호 규칙
-
         if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(passwordConfirm))
         {
             _messageText.text = "아이디와 비밀번호를 입력해주세요.";
+            return;
+        }
+
+        if (!_idSpec.IsSatisfiedBy(id))
+        {
+            _messageText.text = _idSpec.ErrorMessage;
+            return;
+        }
+
+        if (!_passwordSpec.isSatisfiedBy(password))
+        {
+            _messageText.text = _passwordSpec.ErrorMessage;
             return;
         }
 

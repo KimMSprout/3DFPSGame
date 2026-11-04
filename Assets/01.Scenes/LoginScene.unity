@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: "KimMS\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9132e80ec8e3234c9ac987465d2239b, type: 2}
   m_sharedMaterial: {fileID: 5557479989849097480, guid: c9132e80ec8e3234c9ac987465d2239b, type: 2}
@@ -8723,7 +8723,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624829169}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -21245,7 +21245,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407840730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -22519,7 +22519,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: "\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9132e80ec8e3234c9ac987465d2239b, type: 2}
   m_sharedMaterial: {fileID: 5557479989849097480, guid: c9132e80ec8e3234c9ac987465d2239b, type: 2}
@@ -28819,7 +28819,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.52, g: 0.92, b: 0.38, a: 1}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.52, g: 0.92, b: 0.38, a: 0.35}
-  m_Text: 
+  m_Text: KimMS
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
   m_ReadOnly: 0
@@ -30162,7 +30162,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.52, g: 0.92, b: 0.38, a: 1}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.52, g: 0.92, b: 0.38, a: 0.35}
-  m_Text: 
+  m_Text: 1q2w3e4r
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
   m_ReadOnly: 0
