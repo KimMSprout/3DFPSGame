@@ -67,7 +67,7 @@ public class UI_LoginPopup : MonoBehaviour
 
         if (_repository.CheckPassword(id, password))
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("LoadingScene");
         }
         else
         {
