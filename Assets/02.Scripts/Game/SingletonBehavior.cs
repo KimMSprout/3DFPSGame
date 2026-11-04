@@ -24,5 +24,7 @@ public class SingletonBehavior<T> : MonoBehaviour where T : SingletonBehavior<T>
         {
             _instance = null;
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 }
