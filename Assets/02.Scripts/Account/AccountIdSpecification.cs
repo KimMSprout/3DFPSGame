@@ -2,14 +2,13 @@
 
 public class AccountIdSpecification
 {
-    // ID(이메일) : 로컬@도메인.최상위도메인, '.'은 연속되거나 맨 앞/끝, '@' 앞뒤에 올 수 없음
-    private static readonly Regex EmailRegex = new Regex(
-        @"^[A-Za-z0-9_+\-]+(\.[A-Za-z0-9_+\-]+)*@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*\.[A-Za-z]{2,}\z");
+    // ID : 영문, 숫자, -, @, _를 사용한 3~20 글자
+    private static readonly Regex IdRegex = new Regex(@"^[A-Za-z0-9\-@_]{3,20}\z");
 
-    public string ErrorMessage => "아이디는 이메일 형식이어야 합니다.";
+    public string ErrorMessage => "아이디는 영문, 숫자, -, @, _를 사용해 3~20글자로 입력해주세요.";
 
-    public bool IsSatisfiedBy(string email)
+    public bool IsSatisfiedBy(string id)
     {
-        return EmailRegex.IsMatch(email);
+        return IdRegex.IsMatch(id);
     }
 }
